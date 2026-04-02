@@ -1,0 +1,50 @@
+2026-04-02 23:51:53 - migration - INFO - Migration started
+2026-04-02 23:52:30 - migration - INFO - Dropped table: products
+2026-04-02 23:52:30 - migration - INFO - Dropped table: orders
+2026-04-02 23:52:30 - migration - INFO - Dropped table: order_items
+2026-04-02 23:52:30 - migration - INFO - Dropped table: customers
+2026-04-02 23:52:30 - migration - INFO - Created table: customers
+2026-04-02 23:52:30 - migration - INFO - Created table: order_items
+2026-04-02 23:52:30 - migration - INFO - Created table: orders
+2026-04-02 23:52:30 - migration - INFO - Created table: products
+2026-04-02 23:52:30 - migration - ERROR - Failed to insert data into customers: column "is_active" is of type boolean but expression is of type integer
+LINE 1: ... 'India', NULL, '2026-04-02T14:15:58'::timestamp, 1, 'gold',...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+2026-04-02 23:52:30 - migration - INFO - Inserted 5 rows into order_items
+2026-04-02 23:52:30 - migration - ERROR - Failed to insert data into orders: column "is_express" is of type boolean but expression is of type integer
+LINE 1: ...tamp, 134999.00, 'delivered', 'upi', NULL, 5000.00, 0.00, 1)
+                                                                     ^
+HINT:  You will need to rewrite or cast the expression.
+
+2026-04-02 23:52:30 - migration - ERROR - Failed to insert data into products: column "is_active" is of type boolean but expression is of type integer
+LINE 1: ...: ["black", "titanium"], "storage": ["256GB", "512GB"]}', 1)
+                                                                     ^
+HINT:  You will need to rewrite or cast the expression.
+
+2026-04-02 23:52:30 - migration - WARNING - Could not apply constraint: syntax error at or near "customers"
+LINE 1: customers
+        ^
+
+SQL: customers
+2026-04-02 23:52:30 - migration - WARNING - Could not apply constraint: syntax error at or near "order_items"
+LINE 1: order_items
+        ^
+
+SQL: order_items
+2026-04-02 23:52:30 - migration - WARNING - Could not apply constraint: syntax error at or near "orders"
+LINE 1: orders
+        ^
+
+SQL: orders
+2026-04-02 23:52:30 - migration - WARNING - Could not apply constraint: syntax error at or near "products"
+LINE 1: products
+        ^
+
+SQL: products
+2026-04-02 23:52:30 - migration - INFO - Created routine: sp_place_order_complex
+2026-04-02 23:52:30 - migration - INFO - Created routine: sp_update_customer_metadata
+2026-04-02 23:52:30 - migration - INFO - Created routine: fn_customer_lifetime_value
+2026-04-02 23:52:30 - migration - INFO - Created routine: fn_total_revenue_by_status
+2026-04-02 23:52:30 - migration - INFO - Migration completed successfully
