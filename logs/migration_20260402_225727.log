@@ -1,0 +1,139 @@
+2026-04-02 22:57:27 - migration - INFO - Migration started
+2026-04-02 22:57:40 - migration - DEBUG - Testing MySQL connection to localhost:3306/etl_migration_db
+2026-04-02 22:57:40 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 22:57:40 - migration - DEBUG - MySQL connection test passed
+2026-04-02 22:57:40 - migration - DEBUG - MySQL connection closed
+2026-04-02 22:57:40 - migration - DEBUG - Testing PostgreSQL connection to localhost:5432/etl_migration_db
+2026-04-02 22:57:40 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 22:57:40 - migration - DEBUG - PostgreSQL connection test passed
+2026-04-02 22:57:40 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 22:57:40 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 22:57:40 - migration - DEBUG - Tables discovered: ['customers', 'order_items', 'orders']
+2026-04-02 22:57:40 - migration - DEBUG - Extracted schema for table: customers
+2026-04-02 22:57:40 - migration - DEBUG - Extracted schema for table: order_items
+2026-04-02 22:57:40 - migration - DEBUG - Extracted schema for table: orders
+2026-04-02 22:57:40 - migration - DEBUG - MySQL connection closed
+2026-04-02 22:57:40 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 22:57:43 - migration - DEBUG - Extracted 20 rows from customers
+2026-04-02 22:57:43 - migration - DEBUG - Extracted 20 rows from order_items
+2026-04-02 22:57:43 - migration - DEBUG - Extracted 20 rows from orders
+2026-04-02 22:57:43 - migration - DEBUG - MySQL connection closed
+2026-04-02 22:57:43 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 22:57:43 - migration - DEBUG - Extracted procedure: sp_add_customer
+2026-04-02 22:57:43 - migration - DEBUG - Extracted procedure: sp_get_order_details
+2026-04-02 22:57:43 - migration - DEBUG - Extracted procedure: sp_place_order
+2026-04-02 22:57:43 - migration - DEBUG - Extracted procedure: sp_update_customer_metrics
+2026-04-02 22:57:43 - migration - DEBUG - MySQL connection closed
+2026-04-02 22:57:43 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 22:57:43 - migration - DEBUG - Extracted function: fn_customer_active_orders_count
+2026-04-02 22:57:43 - migration - DEBUG - Extracted function: fn_customer_avg_order_value
+2026-04-02 22:57:43 - migration - DEBUG - Extracted function: fn_customer_lifetime_value
+2026-04-02 22:57:43 - migration - DEBUG - Extracted function: fn_monthly_revenue
+2026-04-02 22:57:43 - migration - DEBUG - MySQL connection closed
+2026-04-02 22:57:43 - migration - DEBUG - Extraction validation: {'customers': 20, 'order_items': 20, 'orders': 20}
+2026-04-02 22:57:43 - migration - DEBUG - Transforming schema for table: customers
+2026-04-02 22:57:43 - migration - DEBUG - Transformed schema for customers, extracted 0 FK constraints
+2026-04-02 22:57:43 - migration - DEBUG - Transforming schema for table: order_items
+2026-04-02 22:57:43 - migration - DEBUG - Transformed schema for order_items, extracted 1 FK constraints
+2026-04-02 22:57:43 - migration - DEBUG - Transforming schema for table: orders
+2026-04-02 22:57:43 - migration - DEBUG - Transformed schema for orders, extracted 1 FK constraints
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: sp_add_customer (function=False)
+2026-04-02 22:57:43 - migration - DEBUG - Routine sp_add_customer transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: sp_get_order_details (function=False)
+2026-04-02 22:57:43 - migration - DEBUG - Routine sp_get_order_details transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: sp_place_order (function=False)
+2026-04-02 22:57:43 - migration - DEBUG - Routine sp_place_order transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: sp_update_customer_metrics (function=False)
+2026-04-02 22:57:43 - migration - DEBUG - Routine sp_update_customer_metrics transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: fn_customer_active_orders_count (function=True)
+2026-04-02 22:57:43 - migration - DEBUG - Routine fn_customer_active_orders_count transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: fn_customer_avg_order_value (function=True)
+2026-04-02 22:57:43 - migration - DEBUG - Routine fn_customer_avg_order_value transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: fn_customer_lifetime_value (function=True)
+2026-04-02 22:57:43 - migration - DEBUG - Routine fn_customer_lifetime_value transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - Transforming routine: fn_monthly_revenue (function=True)
+2026-04-02 22:57:43 - migration - DEBUG - Routine fn_monthly_revenue transformation complete
+2026-04-02 22:57:43 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 22:57:43 - migration - INFO - Dropped table: orders
+2026-04-02 22:57:43 - migration - INFO - Dropped table: order_items
+2026-04-02 22:57:43 - migration - INFO - Dropped table: customers
+2026-04-02 22:57:43 - migration - DEBUG - Creating table customers:
+CREATE TABLE "customers" (
+  "customer_id" int NOT NULL ,
+  "first_name" varchar(50) NOT NULL,
+  "last_name" varchar(50) NOT NULL,
+  "email" varchar(255) NOT NULL,
+  "phone_number" varchar(20) NOT NULL,
+  "address" text NOT NULL,
+  "city" varchar(100) NOT NULL,
+  "state" varchar(100) NOT NULL,
+  "postal_code" varchar(20) NOT NULL,
+  "country" varchar(50) NOT NULL DEFAULT 'India',
+  "date_of_birth" date DEFAULT NULL,
+  "registration_date" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "is_active" BOOLEAN NOT NULL DEFAULT '1',
+  "membership_tier" TEXT NOT NULL DEFAULT 'basic',
+  "loyalty_points" int NOT NULL DEFAULT '0',
+  "total_spent" decimal(12,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY ("customer_id"),
+  UNIQUE KEY "email" ("email"),
+  CONSTRAINT "customers_chk_1" CHECK (("loyalty_points" >= 0)),
+  CONSTRAINT "customers_chk_2" CHECK (("total_spent" >= 0))
+)
+2026-04-02 22:57:43 - migration - ERROR - Failed to create table customers: syntax error at or near "KEY"
+LINE 19:   UNIQUE KEY "email" ("email"),
+                  ^
+
+2026-04-02 22:57:43 - migration - DEBUG - Creating table order_items:
+CREATE TABLE "order_items" (
+  "item_id" int NOT NULL ,
+  "order_id" int NOT NULL,
+  "product_name" varchar(200) NOT NULL,
+  "quantity" int NOT NULL,
+  "unit_price" decimal(10,2) NOT NULL,
+  "line_total" decimal(12,2) NOT NULL,
+  "discount" decimal(10,2) NOT NULL DEFAULT '0.00',
+  "item_status" TEXT NOT NULL DEFAULT 'in_stock',
+  "shipped_date" TIMESTAMP DEFAULT NULL,
+  "is_gift_wrapped" BOOLEAN NOT NULL DEFAULT '0',
+  "warranty_months" int NOT NULL DEFAULT '12',
+  "serial_number" varchar(50) DEFAULT NULL,
+  PRIMARY KEY ("item_id"),
+  UNIQUE KEY "serial_number" ("serial_number"),
+  CONSTRAINT "order_items_chk_1" CHECK (("quantity" > 0)),
+  CONSTRAINT "order_items_chk_2" CHECK (("unit_price" >= 0)),
+  CONSTRAINT "order_items_chk_3" CHECK (("line_total" >= 0)),
+  CONSTRAINT "order_items_chk_4" CHECK (("discount" >= 0)),
+  CONSTRAINT "order_items_chk_5" CHECK (("warranty_months" >= 0))
+)
+2026-04-02 22:57:43 - migration - ERROR - Failed to create table order_items: syntax error at or near "KEY"
+LINE 15:   UNIQUE KEY "serial_number" ("serial_number"),
+                  ^
+
+2026-04-02 22:57:43 - migration - DEBUG - Creating table orders:
+CREATE TABLE "orders" (
+  "order_id" int NOT NULL ,
+  "customer_id" int NOT NULL,
+  "order_date" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "total_amount" decimal(12,2) NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'pending',
+  "shipping_address" text NOT NULL,
+  "payment_method" TEXT NOT NULL DEFAULT 'credit_card',
+  "tracking_number" varchar(100) DEFAULT NULL,
+  "estimated_delivery_date" date DEFAULT NULL,
+  "discount_amount" decimal(10,2) NOT NULL DEFAULT '0.00',
+  "tax_amount" decimal(10,2) NOT NULL DEFAULT '0.00',
+  "notes" text,
+  "is_express" BOOLEAN NOT NULL DEFAULT '0',
+  PRIMARY KEY ("order_id"),
+  UNIQUE KEY "tracking_number" ("tracking_number"),
+  CONSTRAINT "orders_chk_1" CHECK (("total_amount" >= 0)),
+  CONSTRAINT "orders_chk_2" CHECK (("discount_amount" >= 0)),
+  CONSTRAINT "orders_chk_3" CHECK (("tax_amount" >= 0))
+)
+2026-04-02 22:57:43 - migration - ERROR - Failed to create table orders: syntax error at or near "KEY"
+LINE 16:   UNIQUE KEY "tracking_number" ("tracking_number"),
+                  ^
+
+2026-04-02 22:57:43 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 22:57:43 - migration - ERROR - Migration failed

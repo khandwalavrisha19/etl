@@ -1,0 +1,35 @@
+2026-04-02 14:02:51 - migration - INFO - Migration started
+2026-04-02 14:03:08 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "ecommerce_etl_db" does not exist
+
+2026-04-02 14:03:08 - migration - INFO - Database ecommerce_etl_db not found, attempting to create it...
+2026-04-02 14:03:10 - migration - INFO - Successfully created database: ecommerce_etl_db
+2026-04-02 14:03:10 - migration - INFO - Dropped table: customers
+2026-04-02 14:03:10 - migration - INFO - Dropped table: orders
+2026-04-02 14:03:10 - migration - INFO - Dropped table: products
+2026-04-02 14:03:11 - migration - INFO - Created table: customers
+2026-04-02 14:03:11 - migration - INFO - Created table: orders
+2026-04-02 14:03:11 - migration - WARNING - Table creation error for products: syntax error at or near "ON"
+LINE 1: ...ted" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE ...
+                                                             ^
+
+2026-04-02 14:03:11 - migration - INFO - Inserted 5 rows into customers
+2026-04-02 14:03:11 - migration - INFO - Inserted 5 rows into orders
+2026-04-02 14:03:11 - migration - WARNING - Insert error for products: relation "products" does not exist
+LINE 1: INSERT INTO "products" ("product_id", "sku", "product_name",...
+                    ^
+
+2026-04-02 14:03:11 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-02 14:03:12 - migration - INFO - Created routine: sp_add_customer
+2026-04-02 14:03:12 - migration - INFO - Created routine: sp_get_customer_orders
+2026-04-02 14:03:12 - migration - INFO - Created routine: sp_place_order
+2026-04-02 14:03:12 - migration - INFO - Created routine: fn_customer_lifetime_value
+2026-04-02 14:03:12 - migration - INFO - Created routine: fn_monthly_sales
+2026-04-02 14:03:12 - migration - ERROR - PostgreSQL connection error: relation "products" does not exist
+LINE 1: SELECT COUNT(*) FROM "products"
+                             ^
+
+2026-04-02 14:03:12 - migration - ERROR - Validation error: relation "products" does not exist
+LINE 1: SELECT COUNT(*) FROM "products"
+                             ^
+
+2026-04-02 14:03:12 - migration - INFO - Migration completed successfully

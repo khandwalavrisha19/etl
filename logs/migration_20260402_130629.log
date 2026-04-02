@@ -1,0 +1,21 @@
+2026-04-02 13:06:29 - migration - INFO - Migration started
+2026-04-02 13:07:02 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "etl_students" does not exist
+
+2026-04-02 13:07:02 - migration - INFO - Database etl_students not found, attempting to create it...
+2026-04-02 13:07:03 - migration - INFO - Successfully created database: etl_students
+2026-04-02 13:07:03 - migration - INFO - Created table: courses
+2026-04-02 13:07:03 - migration - INFO - Created table: enrollments
+2026-04-02 13:07:03 - migration - WARNING - Table creation error for students: operator does not exist: boolean = integer
+LINE 1: ...ne"), CONSTRAINT "students_chk_1" CHECK ("status" in (0,1)) ...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2026-04-02 13:07:04 - migration - WARNING - Insert error for courses: relation "courses" does not exist
+LINE 1: INSERT INTO "courses" ("course_id", "course_name", "course_c...
+                    ^
+
+2026-04-02 13:07:04 - migration - ERROR - PostgreSQL connection error: current transaction is aborted, commands ignored until end of transaction block
+
+2026-04-02 13:07:04 - migration - ERROR - Data insertion error: current transaction is aborted, commands ignored until end of transaction block
+
+2026-04-02 13:07:04 - migration - ERROR - Migration failed

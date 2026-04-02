@@ -1,0 +1,32 @@
+2026-04-02 13:11:56 - migration - INFO - Migration started
+2026-04-02 13:12:22 - migration - INFO - Dropped table: courses
+2026-04-02 13:12:22 - migration - INFO - Dropped table: enrollments
+2026-04-02 13:12:22 - migration - INFO - Dropped table: students
+2026-04-02 13:12:23 - migration - INFO - Created table: courses
+2026-04-02 13:12:23 - migration - INFO - Created table: enrollments
+2026-04-02 13:12:23 - migration - WARNING - Table creation error for students: syntax error at end of input
+LINE 1: ...IMARY KEY ("student_id"), UNIQUE ("email"), UNIQUE ("phone")
+                                                                       ^
+
+2026-04-02 13:12:23 - migration - INFO - Inserted 5 rows into courses
+2026-04-02 13:12:23 - migration - INFO - Inserted 7 rows into enrollments
+2026-04-02 13:12:23 - migration - WARNING - Insert error for students: relation "students" does not exist
+LINE 1: INSERT INTO "students" ("student_id", "full_name", "email", ...
+                    ^
+
+2026-04-02 13:12:23 - migration - WARNING - Constraint error: relation "students" does not exist
+
+2026-04-02 13:12:23 - migration - INFO - Applied constraint: ALTER TABLE "enrollments" ADD CONSTRAINT "enrollments_ibfk_2...
+2026-04-02 13:12:23 - migration - INFO - Created routine: get_all_students
+2026-04-02 13:12:23 - migration - INFO - Created routine: get_student_courses
+2026-04-02 13:12:23 - migration - INFO - Created routine: avg_attendance
+2026-04-02 13:12:23 - migration - INFO - Created routine: total_courses
+2026-04-02 13:12:23 - migration - ERROR - PostgreSQL connection error: relation "students" does not exist
+LINE 1: SELECT COUNT(*) FROM "students"
+                             ^
+
+2026-04-02 13:12:23 - migration - ERROR - Validation error: relation "students" does not exist
+LINE 1: SELECT COUNT(*) FROM "students"
+                             ^
+
+2026-04-02 13:12:24 - migration - INFO - Migration completed successfully

@@ -1,0 +1,10 @@
+2026-04-01 16:18:52 - migration - INFO - Migration started
+2026-04-01 16:19:06 - migration - ERROR - PostgreSQL connection error: syntax error at or near "AUTO_INCREMENT"
+LINE 1: ...TE TABLE "customers" ( "customer_id" int NOT NULL AUTO_INCRE...
+                                                             ^
+
+2026-04-01 16:19:06 - migration - ERROR - Table creation error: syntax error at or near "AUTO_INCREMENT"
+LINE 1: ...TE TABLE "customers" ( "customer_id" int NOT NULL AUTO_INCRE...
+                                                             ^
+
+2026-04-01 16:19:06 - migration - ERROR - Migration failed

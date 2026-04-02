@@ -1,0 +1,16 @@
+2026-04-01 16:02:25 - migration - INFO - Migration started
+2026-04-01 16:03:45 - migration - ERROR - PostgreSQL connection error: invalid connection option "database"
+
+Multiple connection attempts failed. All failures were:
+- host: 'localhost', port: 5432, hostaddr: '::1': invalid connection option "database"
+
+- host: 'localhost', port: 5432, hostaddr: '127.0.0.1': invalid connection option "database"
+
+2026-04-01 16:03:45 - migration - ERROR - PostgreSQL connection test failed: invalid connection option "database"
+
+Multiple connection attempts failed. All failures were:
+- host: 'localhost', port: 5432, hostaddr: '::1': invalid connection option "database"
+
+- host: 'localhost', port: 5432, hostaddr: '127.0.0.1': invalid connection option "database"
+
+2026-04-01 16:03:45 - migration - ERROR - Connection test failed

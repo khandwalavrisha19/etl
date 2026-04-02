@@ -1,0 +1,17 @@
+2026-04-02 22:00:03 - migration - INFO - Migration started
+2026-04-02 22:00:26 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "test_etl_db" does not exist
+
+2026-04-02 22:00:26 - migration - INFO - Database test_etl_db not found, attempting to create it...
+2026-04-02 22:00:27 - migration - INFO - Successfully created database: test_etl_db
+2026-04-02 22:00:28 - migration - INFO - Created table: customers
+2026-04-02 22:00:28 - migration - INFO - Created table: order_items
+2026-04-02 22:00:28 - migration - INFO - Created table: orders
+2026-04-02 22:00:28 - migration - INFO - Created table: products
+2026-04-02 22:00:28 - migration - INFO - Inserted 5 rows into customers
+2026-04-02 22:00:28 - migration - INFO - Inserted 6 rows into order_items
+2026-04-02 22:00:28 - migration - INFO - Inserted 5 rows into orders
+2026-04-02 22:00:28 - migration - INFO - Inserted 5 rows into products
+2026-04-02 22:00:29 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-02 22:00:29 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_2...
+2026-04-02 22:00:29 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-02 22:00:29 - migration - INFO - Migration completed successfully

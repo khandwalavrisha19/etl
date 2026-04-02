@@ -1,0 +1,21 @@
+2026-04-01 16:40:30 - migration - INFO - Migration started
+2026-04-01 16:40:44 - migration - INFO - Dropped table: customers
+2026-04-01 16:40:44 - migration - INFO - Dropped table: order_items
+2026-04-01 16:40:44 - migration - INFO - Dropped table: orders
+2026-04-01 16:40:45 - migration - INFO - Created table: customers
+2026-04-01 16:40:45 - migration - INFO - Created table: order_items
+2026-04-01 16:40:45 - migration - INFO - Created table: orders
+2026-04-01 16:40:46 - migration - INFO - Inserted 20 rows into customers
+2026-04-01 16:40:46 - migration - INFO - Inserted 20 rows into order_items
+2026-04-01 16:40:46 - migration - INFO - Inserted 20 rows into orders
+2026-04-01 16:40:46 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-01 16:40:46 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-01 16:40:46 - migration - ERROR - PostgreSQL connection error: syntax error at or near "INSERT"
+LINE 2:     INSERT INTO customers (first_name, last_name, email, pho...
+            ^
+
+2026-04-01 16:40:46 - migration - ERROR - Routine creation error: syntax error at or near "INSERT"
+LINE 2:     INSERT INTO customers (first_name, last_name, email, pho...
+            ^
+
+2026-04-01 16:40:46 - migration - ERROR - Migration failed

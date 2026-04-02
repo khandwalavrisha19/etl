@@ -1,0 +1,24 @@
+2026-04-02 13:33:22 - migration - INFO - Migration started
+2026-04-02 13:33:34 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "inventory_etl_db" does not exist
+
+2026-04-02 13:33:34 - migration - INFO - Database inventory_etl_db not found, attempting to create it...
+2026-04-02 13:33:35 - migration - INFO - Successfully created database: inventory_etl_db
+2026-04-02 13:33:35 - migration - INFO - Dropped table: products
+2026-04-02 13:33:35 - migration - INFO - Dropped table: stock_movements
+2026-04-02 13:33:35 - migration - INFO - Dropped table: suppliers
+2026-04-02 13:33:36 - migration - INFO - Created table: products
+2026-04-02 13:33:36 - migration - INFO - Created table: stock_movements
+2026-04-02 13:33:36 - migration - INFO - Created table: suppliers
+2026-04-02 13:33:36 - migration - INFO - Inserted 5 rows into products
+2026-04-02 13:33:36 - migration - INFO - Inserted 5 rows into stock_movements
+2026-04-02 13:33:36 - migration - INFO - Inserted 5 rows into suppliers
+2026-04-02 13:33:36 - migration - INFO - Applied constraint: ALTER TABLE "products" ADD CONSTRAINT "products_ibfk_1" FORE...
+2026-04-02 13:33:36 - migration - INFO - Applied constraint: ALTER TABLE "stock_movements" ADD CONSTRAINT "stock_movement...
+2026-04-02 13:33:37 - migration - INFO - Created routine: sp_add_stock
+2026-04-02 13:33:37 - migration - INFO - Created routine: sp_add_supplier
+2026-04-02 13:33:37 - migration - INFO - Created routine: sp_get_low_stock
+2026-04-02 13:33:37 - migration - INFO - Created routine: sp_issue_stock
+2026-04-02 13:33:37 - migration - INFO - Created routine: fn_current_stock_value
+2026-04-02 13:33:37 - migration - INFO - Created routine: fn_supplier_order_count
+2026-04-02 13:33:37 - migration - INFO - Created routine: fn_total_inventory_value
+2026-04-02 13:33:37 - migration - INFO - Migration completed successfully

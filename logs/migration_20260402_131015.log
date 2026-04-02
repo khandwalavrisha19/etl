@@ -1,0 +1,33 @@
+2026-04-02 13:10:15 - migration - INFO - Migration started
+2026-04-02 13:10:31 - migration - INFO - Dropped table: courses
+2026-04-02 13:10:31 - migration - INFO - Dropped table: enrollments
+2026-04-02 13:10:31 - migration - INFO - Dropped table: students
+2026-04-02 13:10:31 - migration - INFO - Created table: courses
+2026-04-02 13:10:31 - migration - INFO - Created table: enrollments
+2026-04-02 13:10:31 - migration - WARNING - Table creation error for students: operator does not exist: boolean = integer
+LINE 1: ...ne"), CONSTRAINT "students_chk_1" CHECK ("status" in (0,1)) ...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2026-04-02 13:10:32 - migration - INFO - Inserted 5 rows into courses
+2026-04-02 13:10:32 - migration - INFO - Inserted 7 rows into enrollments
+2026-04-02 13:10:32 - migration - WARNING - Insert error for students: relation "students" does not exist
+LINE 1: INSERT INTO "students" ("student_id", "full_name", "email", ...
+                    ^
+
+2026-04-02 13:10:32 - migration - WARNING - Constraint error: relation "students" does not exist
+
+2026-04-02 13:10:32 - migration - INFO - Applied constraint: ALTER TABLE "enrollments" ADD CONSTRAINT "enrollments_ibfk_2...
+2026-04-02 13:10:32 - migration - INFO - Created routine: get_all_students
+2026-04-02 13:10:32 - migration - INFO - Created routine: get_student_courses
+2026-04-02 13:10:32 - migration - INFO - Created routine: avg_attendance
+2026-04-02 13:10:32 - migration - INFO - Created routine: total_courses
+2026-04-02 13:10:33 - migration - ERROR - PostgreSQL connection error: relation "students" does not exist
+LINE 1: SELECT COUNT(*) FROM "students"
+                             ^
+
+2026-04-02 13:10:33 - migration - ERROR - Validation error: relation "students" does not exist
+LINE 1: SELECT COUNT(*) FROM "students"
+                             ^
+
+2026-04-02 13:10:33 - migration - INFO - Migration completed successfully

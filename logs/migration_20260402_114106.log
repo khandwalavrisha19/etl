@@ -1,0 +1,45 @@
+2026-04-02 11:41:06 - migration - INFO - Migration started
+2026-04-02 11:41:18 - migration - INFO - Dropped table: customers
+2026-04-02 11:41:18 - migration - INFO - Dropped table: order_items
+2026-04-02 11:41:18 - migration - INFO - Dropped table: orders
+2026-04-02 11:41:18 - migration - INFO - Created table: customers
+2026-04-02 11:41:18 - migration - INFO - Created table: order_items
+2026-04-02 11:41:18 - migration - INFO - Created table: orders
+2026-04-02 11:41:18 - migration - INFO - Inserted 20 rows into customers
+2026-04-02 11:41:18 - migration - INFO - Inserted 20 rows into order_items
+2026-04-02 11:41:18 - migration - INFO - Inserted 20 rows into orders
+2026-04-02 11:41:18 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-02 11:41:18 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine sp_add_customer: syntax error at or near "SELECT"
+LINE 4:     SELECT LAST_INSERT_ID() AS new_customer_id;
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine sp_get_order_details: syntax error at or near "SELECT"
+LINE 3:     SELECT * FROM order_items WHERE order_id = p_order_id OR...
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine sp_place_order: syntax error at or near "SELECT"
+LINE 3:     SELECT COUNT(*) INTO v_exists FROM customers WHERE custo...
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine sp_update_customer_metrics: syntax error at or near "SELECT"
+LINE 3:     SELECT ROW_COUNT() AS updated, loyalty_points, membershi...
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine fn_customer_active_orders_count: syntax error at or near "SELECT"
+LINE 2:     SELECT COUNT(*) INTO v_count
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine fn_customer_avg_order_value: syntax error at or near "SELECT"
+LINE 2:     SELECT AVG(total_amount) INTO v_avg 
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine fn_customer_lifetime_value: syntax error at or near "SELECT"
+LINE 2:     SELECT total_spent + (loyalty_points * 0.5) INTO v_total...
+            ^
+
+2026-04-02 11:41:18 - migration - WARNING - Error creating routine fn_monthly_revenue: syntax error at or near "SELECT"
+LINE 2:     SELECT SUM(total_amount) INTO v_rev
+            ^
+
+2026-04-02 11:41:18 - migration - INFO - Migration completed successfully

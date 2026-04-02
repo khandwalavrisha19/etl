@@ -1,0 +1,15 @@
+2026-04-01 16:31:48 - migration - INFO - Migration started
+2026-04-01 16:32:11 - migration - INFO - Dropped table: order_items
+2026-04-01 16:32:11 - migration - INFO - Dropped table: orders
+2026-04-01 16:32:11 - migration - INFO - Dropped table: customers
+2026-04-01 16:32:12 - migration - INFO - Created table: customers
+2026-04-01 16:32:12 - migration - INFO - Created table: orders
+2026-04-01 16:32:12 - migration - INFO - Created table: order_items
+2026-04-01 16:32:12 - migration - INFO - Inserted 20 rows into customers
+2026-04-01 16:32:12 - migration - INFO - Inserted 20 rows into orders
+2026-04-01 16:32:12 - migration - INFO - Inserted 20 rows into order_items
+2026-04-01 16:32:12 - migration - ERROR - PostgreSQL connection error: multiple primary keys for table "customers" are not allowed
+
+2026-04-01 16:32:12 - migration - ERROR - Constraint application error: multiple primary keys for table "customers" are not allowed
+
+2026-04-01 16:32:12 - migration - ERROR - Migration failed

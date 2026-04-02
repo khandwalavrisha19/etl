@@ -1,0 +1,47 @@
+2026-04-02 13:28:41 - migration - INFO - Migration started
+2026-04-02 13:28:54 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "library_etl_db" does not exist
+
+2026-04-02 13:28:54 - migration - INFO - Database library_etl_db not found, attempting to create it...
+2026-04-02 13:28:55 - migration - INFO - Successfully created database: library_etl_db
+2026-04-02 13:28:56 - migration - INFO - Dropped table: books
+2026-04-02 13:28:56 - migration - INFO - Dropped table: borrowings
+2026-04-02 13:28:56 - migration - INFO - Dropped table: members
+2026-04-02 13:28:56 - migration - INFO - Created table: books
+2026-04-02 13:28:56 - migration - WARNING - Table creation error for borrowings: function curdate() does not exist
+LINE 1: ...nt NOT NULL, "borrow_date" date NOT NULL DEFAULT (curdate())...
+                                                             ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2026-04-02 13:28:56 - migration - INFO - Created table: members
+2026-04-02 13:28:57 - migration - INFO - Inserted 5 rows into books
+2026-04-02 13:28:57 - migration - WARNING - Insert error for borrowings: relation "borrowings" does not exist
+LINE 1: INSERT INTO "borrowings" ("borrowing_id", "member_id", "book...
+                    ^
+
+2026-04-02 13:28:57 - migration - INFO - Inserted 5 rows into members
+2026-04-02 13:28:57 - migration - WARNING - Constraint error: relation "borrowings" does not exist
+
+2026-04-02 13:28:57 - migration - WARNING - Constraint error: relation "borrowings" does not exist
+
+2026-04-02 13:28:57 - migration - INFO - Created routine: sp_add_member
+2026-04-02 13:28:57 - migration - INFO - Created routine: sp_get_member_history
+2026-04-02 13:28:57 - migration - WARNING - Error creating routine sp_issue_book: syntax error at or near "p_days"
+LINE 11: ...er_id, p_book_id, DATE_ADD(CURRENT_DATE, INTERVAL p_days DAY...
+                                                              ^
+
+2026-04-02 13:28:57 - migration - WARNING - Error creating routine sp_return_book: syntax error at or near "JOIN"
+LINE 9:     JOIN borrowings br ON b.book_id = br.book_id
+            ^
+
+2026-04-02 13:28:57 - migration - INFO - Created routine: fn_member_total_fine
+2026-04-02 13:28:57 - migration - INFO - Created routine: fn_monthly_borrowings
+2026-04-02 13:28:57 - migration - INFO - Created routine: fn_overdue_books_count
+2026-04-02 13:28:57 - migration - ERROR - PostgreSQL connection error: relation "borrowings" does not exist
+LINE 1: SELECT COUNT(*) FROM "borrowings"
+                             ^
+
+2026-04-02 13:28:57 - migration - ERROR - Validation error: relation "borrowings" does not exist
+LINE 1: SELECT COUNT(*) FROM "borrowings"
+                             ^
+
+2026-04-02 13:28:57 - migration - INFO - Migration completed successfully

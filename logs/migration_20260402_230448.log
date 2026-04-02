@@ -1,0 +1,294 @@
+2026-04-02 23:04:48 - migration - INFO - Migration started
+2026-04-02 23:04:59 - migration - DEBUG - Testing MySQL connection to localhost:3306/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection test passed
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection closed
+2026-04-02 23:04:59 - migration - DEBUG - Testing PostgreSQL connection to localhost:5432/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - PostgreSQL connection test passed
+2026-04-02 23:04:59 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - Tables discovered: ['customers', 'order_items', 'orders']
+2026-04-02 23:04:59 - migration - DEBUG - Extracted schema for table: customers
+2026-04-02 23:04:59 - migration - DEBUG - Extracted schema for table: order_items
+2026-04-02 23:04:59 - migration - DEBUG - Extracted schema for table: orders
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection closed
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - Extracted 20 rows from customers
+2026-04-02 23:04:59 - migration - DEBUG - Extracted 20 rows from order_items
+2026-04-02 23:04:59 - migration - DEBUG - Extracted 20 rows from orders
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection closed
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - Extracted procedure: sp_add_customer
+2026-04-02 23:04:59 - migration - DEBUG - Extracted procedure: sp_get_order_details
+2026-04-02 23:04:59 - migration - DEBUG - Extracted procedure: sp_place_order
+2026-04-02 23:04:59 - migration - DEBUG - Extracted procedure: sp_update_customer_metrics
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection closed
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection opened: localhost:3306/etl_migration_db
+2026-04-02 23:04:59 - migration - DEBUG - Extracted function: fn_customer_active_orders_count
+2026-04-02 23:04:59 - migration - DEBUG - Extracted function: fn_customer_avg_order_value
+2026-04-02 23:04:59 - migration - DEBUG - Extracted function: fn_customer_lifetime_value
+2026-04-02 23:04:59 - migration - DEBUG - Extracted function: fn_monthly_revenue
+2026-04-02 23:04:59 - migration - DEBUG - MySQL connection closed
+2026-04-02 23:04:59 - migration - DEBUG - Extraction validation: {'customers': 20, 'order_items': 20, 'orders': 20}
+2026-04-02 23:04:59 - migration - DEBUG - Transforming schema for table: customers
+2026-04-02 23:04:59 - migration - DEBUG - Transformed schema for customers, extracted 0 FK constraints
+2026-04-02 23:04:59 - migration - DEBUG - Transforming schema for table: order_items
+2026-04-02 23:04:59 - migration - DEBUG - Transformed schema for order_items, extracted 1 FK constraints
+2026-04-02 23:04:59 - migration - DEBUG - Transforming schema for table: orders
+2026-04-02 23:04:59 - migration - DEBUG - Transformed schema for orders, extracted 1 FK constraints
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: sp_add_customer (function=False)
+2026-04-02 23:04:59 - migration - DEBUG - Routine sp_add_customer transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: sp_get_order_details (function=False)
+2026-04-02 23:04:59 - migration - DEBUG - Routine sp_get_order_details transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: sp_place_order (function=False)
+2026-04-02 23:04:59 - migration - DEBUG - Routine sp_place_order transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: sp_update_customer_metrics (function=False)
+2026-04-02 23:04:59 - migration - DEBUG - Routine sp_update_customer_metrics transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: fn_customer_active_orders_count (function=True)
+2026-04-02 23:04:59 - migration - DEBUG - Routine fn_customer_active_orders_count transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: fn_customer_avg_order_value (function=True)
+2026-04-02 23:04:59 - migration - DEBUG - Routine fn_customer_avg_order_value transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: fn_customer_lifetime_value (function=True)
+2026-04-02 23:04:59 - migration - DEBUG - Routine fn_customer_lifetime_value transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - Transforming routine: fn_monthly_revenue (function=True)
+2026-04-02 23:04:59 - migration - DEBUG - Routine fn_monthly_revenue transformation complete
+2026-04-02 23:04:59 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 23:04:59 - migration - INFO - Dropped table: orders
+2026-04-02 23:04:59 - migration - INFO - Dropped table: order_items
+2026-04-02 23:05:00 - migration - INFO - Dropped table: customers
+2026-04-02 23:05:00 - migration - DEBUG - Creating table customers:
+CREATE TABLE "customers" (
+  "customer_id" int NOT NULL ,
+  "first_name" varchar(50) NOT NULL,
+  "last_name" varchar(50) NOT NULL,
+  "email" varchar(255) NOT NULL,
+  "phone_number" varchar(20) NOT NULL,
+  "address" text NOT NULL,
+  "city" varchar(100) NOT NULL,
+  "state" varchar(100) NOT NULL,
+  "postal_code" varchar(20) NOT NULL,
+  "country" varchar(50) NOT NULL DEFAULT 'India',
+  "date_of_birth" date DEFAULT NULL,
+  "registration_date" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "is_active" BOOLEAN NOT NULL DEFAULT '1',
+  "membership_tier" TEXT NOT NULL DEFAULT 'basic',
+  "loyalty_points" int NOT NULL DEFAULT '0',
+  "total_spent" decimal(12,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY ("customer_id"),
+  UNIQUE ("email"),
+  CONSTRAINT "customers_chk_1" CHECK (("loyalty_points" >= 0)),
+  CONSTRAINT "customers_chk_2" CHECK (("total_spent" >= 0))
+)
+2026-04-02 23:05:00 - migration - INFO - Created table: customers
+2026-04-02 23:05:00 - migration - DEBUG - Creating table order_items:
+CREATE TABLE "order_items" (
+  "item_id" int NOT NULL ,
+  "order_id" int NOT NULL,
+  "product_name" varchar(200) NOT NULL,
+  "quantity" int NOT NULL,
+  "unit_price" decimal(10,2) NOT NULL,
+  "line_total" decimal(12,2) NOT NULL,
+  "discount" decimal(10,2) NOT NULL DEFAULT '0.00',
+  "item_status" TEXT NOT NULL DEFAULT 'in_stock',
+  "shipped_date" TIMESTAMP DEFAULT NULL,
+  "is_gift_wrapped" BOOLEAN NOT NULL DEFAULT '0',
+  "warranty_months" int NOT NULL DEFAULT '12',
+  "serial_number" varchar(50) DEFAULT NULL,
+  PRIMARY KEY ("item_id"),
+  UNIQUE ("serial_number"),
+  CONSTRAINT "order_items_chk_1" CHECK (("quantity" > 0)),
+  CONSTRAINT "order_items_chk_2" CHECK (("unit_price" >= 0)),
+  CONSTRAINT "order_items_chk_3" CHECK (("line_total" >= 0)),
+  CONSTRAINT "order_items_chk_4" CHECK (("discount" >= 0)),
+  CONSTRAINT "order_items_chk_5" CHECK (("warranty_months" >= 0))
+)
+2026-04-02 23:05:00 - migration - INFO - Created table: order_items
+2026-04-02 23:05:00 - migration - DEBUG - Creating table orders:
+CREATE TABLE "orders" (
+  "order_id" int NOT NULL ,
+  "customer_id" int NOT NULL,
+  "order_date" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "total_amount" decimal(12,2) NOT NULL,
+  "status" TEXT NOT NULL DEFAULT 'pending',
+  "shipping_address" text NOT NULL,
+  "payment_method" TEXT NOT NULL DEFAULT 'credit_card',
+  "tracking_number" varchar(100) DEFAULT NULL,
+  "estimated_delivery_date" date DEFAULT NULL,
+  "discount_amount" decimal(10,2) NOT NULL DEFAULT '0.00',
+  "tax_amount" decimal(10,2) NOT NULL DEFAULT '0.00',
+  "notes" text,
+  "is_express" BOOLEAN NOT NULL DEFAULT '0',
+  PRIMARY KEY ("order_id"),
+  UNIQUE ("tracking_number"),
+  CONSTRAINT "orders_chk_1" CHECK (("total_amount" >= 0)),
+  CONSTRAINT "orders_chk_2" CHECK (("discount_amount" >= 0)),
+  CONSTRAINT "orders_chk_3" CHECK (("tax_amount" >= 0))
+)
+2026-04-02 23:05:00 - migration - INFO - Created table: orders
+2026-04-02 23:05:00 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 23:05:00 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 23:05:00 - migration - DEBUG - Inserting into customers: [1, 'Rahul', 'Sharma', 'rahul.sharma@example.in', '9876543210', 'Flat 101, MG Road, Worli', 'Mumbai', 'Maharashtra', '400018', 'India', datetime.date(1992, 5, 15), datetime.datetime(2023, 1, 10, 9, 15), 1, 'premium', 245, Decimal('12450.75')]
+2026-04-02 23:05:00 - migration - ERROR - Failed to insert data into customers: column "is_active" is of type boolean but expression is of type integer
+LINE 1: ...2-05-15'::date, '2023-01-10T09:15:00'::timestamp, 1, 'premiu...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+2026-04-02 23:05:00 - migration - DEBUG - Inserting into order_items: [1, 1, 'Wireless Bluetooth Headphones', 2, Decimal('999.50'), Decimal('1999.00'), Decimal('100.00'), 'in_stock', datetime.datetime(2025, 1, 18, 10, 0), 0, 12, 'SN-HP-10001']
+2026-04-02 23:05:00 - migration - ERROR - Failed to insert data into order_items: column "is_gift_wrapped" is of type boolean but expression is of type integer
+LINE 1: ...00, 'in_stock', '2025-01-18T10:00:00'::timestamp, 0, 12, 'SN...
+                                                             ^
+HINT:  You will need to rewrite or cast the expression.
+
+2026-04-02 23:05:00 - migration - DEBUG - Inserting into orders: [1, 1, datetime.datetime(2025, 1, 15, 10, 30), Decimal('2450.50'), 'delivered', 'Flat 101, MG Road, Worli', 'upi', 'TRK1000001', datetime.date(2025, 1, 20), Decimal('200.00'), Decimal('245.05'), 'Fast delivery requested', 0]
+2026-04-02 23:05:00 - migration - ERROR - Failed to insert data into orders: column "is_express" is of type boolean but expression is of type integer
+LINE 1: ...-01-20'::date, 200.00, 245.05, 'Fast delivery requested', 0)
+                                                                     ^
+HINT:  You will need to rewrite or cast the expression.
+
+2026-04-02 23:05:00 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 23:05:00 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 23:05:00 - migration - DEBUG - Applying constraint:
+ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1" FOREIGN KEY ("order_id") REFERENCES "orders" ("order_id") ON DELETE CASCADE
+2026-04-02 23:05:00 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1" FOREIGN KEY ("orde...
+2026-04-02 23:05:00 - migration - DEBUG - Applying constraint:
+ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN KEY ("customer_id") REFERENCES "customers" ("customer_id") ON DELETE RESTRICT
+2026-04-02 23:05:00 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN KEY ("customer_id") ...
+2026-04-02 23:05:00 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 23:05:00 - migration - DEBUG - PostgreSQL connection opened: localhost:5432/etl_migration_db
+2026-04-02 23:05:00 - migration - DEBUG - Creating routine sp_add_customer:
+CREATE OR REPLACE PROCEDURE "sp_add_customer"(p_first_name VARCHAR(50), p_last_name VARCHAR(50), p_email VARCHAR(255), p_phone_number VARCHAR(20), p_address TEXT, p_city VARCHAR(100), p_state VARCHAR(100), p_postal_code VARCHAR(20), p_date_of_birth DATE, p_membership_tier ENUM('basic','premium','vip')
+) LANGUAGE plpgsql AS $$
+BEGIN
+    INSERT INTO customers (first_name, last_name, email, phone_number, address, city, state, postal_code, date_of_birth, membership_tier)
+    VALUES (p_first_name, p_last_name, p_email, p_phone_number, p_address, p_city, p_state, p_postal_code, p_date_of_birth, p_membership_tier);
+    
+    SELECT lastval() AS new_customer_id;
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine sp_add_customer: type enum does not exist
+LINE 1: ...CHAR(20), p_date_of_birth DATE, p_membership_tier ENUM('basi...
+                                                             ^
+
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine sp_get_order_details:
+CREATE OR REPLACE PROCEDURE "sp_get_order_details"(p_order_id INT) LANGUAGE plpgsql AS $$
+BEGIN
+    SELECT 
+        o.order_id, o.order_date, o.status, o.total_amount, 
+        (o.total_amount - o.discount_amount + o.tax_amount) AS grand_total,
+        CONCAT(c.first_name, ' ', c.last_name) AS customer_name,
+        c.email, c.membership_tier
+    FROM orders o
+    INNER JOIN customers c ON o.customer_id = c.customer_id
+    WHERE o.order_id = p_order_id;
+
+    SELECT * FROM order_items WHERE order_id = p_order_id ORDER BY item_id;
+END;
+$$;
+2026-04-02 23:05:01 - migration - INFO - Created routine: sp_get_order_details
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine sp_place_order:
+CREATE OR REPLACE PROCEDURE "sp_place_order"(p_customer_id INT, p_total_amount DECIMAL(12,2), p_shipping_address TEXT, p_payment_method ENUM('credit_card','upi','net_banking','wallet'), p_discount_amount DECIMAL(10,2), p_tax_amount DECIMAL(10,2), p_notes TEXT, p_is_express BOOLEAN
+) LANGUAGE plpgsql AS $$
+DECLARE
+    v_exists INT := 0;
+BEGIN
+    SELECT COUNT(*) INTO v_exists FROM customers WHERE customer_id = p_customer_id AND is_active = TRUE;
+    
+    IF v_exists = 0 THEN
+        RAISE EXCEPTION 'Customer does not exist or is inactive';
+    ELSE
+        INSERT INTO orders (customer_id, total_amount, shipping_address, payment_method, discount_amount, tax_amount, notes, is_express)
+        VALUES (p_customer_id, p_total_amount, p_shipping_address, p_payment_method, p_discount_amount, p_tax_amount, p_notes, p_is_express);
+        
+        SELECT lastval() AS new_order_id;
+    END IF;
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine sp_place_order: type enum does not exist
+LINE 1: ...(12,2), p_shipping_address TEXT, p_payment_method ENUM('cred...
+                                                             ^
+
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine sp_update_customer_metrics:
+CREATE OR REPLACE PROCEDURE "sp_update_customer_metrics"(p_customer_id INT, p_order_amount DECIMAL(12,2)) LANGUAGE plpgsql AS $$
+BEGIN
+    UPDATE customers 
+    SET total_spent = total_spent + p_order_amount,
+        loyalty_points = loyalty_points + FLOOR(p_order_amount / 10),
+        membership_tier = CASE 
+            WHEN total_spent + p_order_amount >= 50000 THEN 'vip'
+            WHEN total_spent + p_order_amount >= 25000 THEN 'premium'
+            ELSE membership_tier 
+        END;
+$$;
+    WHERE customer_id = p_customer_id AND is_active = TRUE;
+    
+    SELECT ROW_COUNT() AS updated, loyalty_points, membership_tier 
+    FROM customers WHERE customer_id = p_customer_id;
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine sp_update_customer_metrics: syntax error at or near "WHERE"
+LINE 12:     WHERE customer_id = p_customer_id AND is_active = TRUE;
+             ^
+
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine fn_customer_active_orders_count:
+CREATE OR REPLACE FUNCTION "fn_customer_active_orders_count"(p_customer_id INT, p_days INT) RETURNS int LANGUAGE plpgsql AS $$
+DECLARE
+    v_count INT;
+BEGIN
+    SELECT COUNT(*) INTO v_count
+    FROM orders o
+    WHERE o.customer_id = p_customer_id 
+      AND o.status NOT IN ('delivered','cancelled')
+      AND o.order_date >= (CURRENT_TIMESTAMP - (p_days * INTERVAL \'1 day\'));
+    RETURN COALESCE(v_count, 0);
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine fn_customer_active_orders_count: syntax error at or near "\"
+LINE 9: ...r_date >= (CURRENT_TIMESTAMP - (p_days * INTERVAL \'1 day\')...
+                                                             ^
+
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine fn_customer_avg_order_value:
+CREATE OR REPLACE FUNCTION "fn_customer_avg_order_value"(p_customer_id INT) RETURNS decimal(12,2)
+    
+BEGIN
+    SELECT AVG(total_amount) INTO v_avg 
+    FROM orders 
+    WHERE customer_id = p_customer_id AND status IN ('shipped','delivered');
+    RETURN COALESCE(v_avg, 0.00);
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine fn_customer_avg_order_value: syntax error at or near "SELECT"
+LINE 4:     SELECT AVG(total_amount) INTO v_avg 
+            ^
+
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine fn_customer_lifetime_value:
+CREATE OR REPLACE FUNCTION "fn_customer_lifetime_value"(p_customer_id INT) RETURNS decimal(12,2)
+    
+BEGIN
+    SELECT total_spent + (loyalty_points * 0.5) INTO v_total 
+    FROM customers WHERE customer_id = p_customer_id;
+    RETURN COALESCE(v_total, 0.00);
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine fn_customer_lifetime_value: syntax error at or near "SELECT"
+LINE 4:     SELECT total_spent + (loyalty_points * 0.5) INTO v_total...
+            ^
+
+2026-04-02 23:05:01 - migration - DEBUG - Creating routine fn_monthly_revenue:
+CREATE OR REPLACE FUNCTION "fn_monthly_revenue"(p_year INT, p_month INT) RETURNS decimal(12,2)
+    
+BEGIN
+    SELECT SUM(total_amount) INTO v_rev
+    FROM orders
+    WHERE YEAR(order_date) = p_year 
+      AND MONTH(order_date) = p_month
+      AND status IN ('shipped','delivered');
+    RETURN COALESCE(v_rev, 0.00);
+END;
+$$;
+2026-04-02 23:05:01 - migration - WARNING - Error creating routine fn_monthly_revenue: syntax error at or near "SELECT"
+LINE 4:     SELECT SUM(total_amount) INTO v_rev
+            ^
+
+2026-04-02 23:05:01 - migration - DEBUG - PostgreSQL connection closed
+2026-04-02 23:05:01 - migration - ERROR - Migration failed

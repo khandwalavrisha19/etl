@@ -1,0 +1,5 @@
+2026-04-02 23:00:28 - migration - INFO - Migration started
+2026-04-02 23:00:47 - migration - DEBUG - Testing MySQL connection to localhost:3306/etl_migration_db
+2026-04-02 23:00:47 - migration - ERROR - MySQL connection error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2026-04-02 23:00:47 - migration - ERROR - MySQL connection test failed: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2026-04-02 23:00:47 - migration - ERROR - Connection test failed

@@ -1,0 +1,4 @@
+2026-04-02 11:45:29 - migration - INFO - Migration started
+2026-04-02 11:45:39 - migration - ERROR - MySQL connection error: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2026-04-02 11:45:39 - migration - ERROR - MySQL connection test failed: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+2026-04-02 11:45:39 - migration - ERROR - Connection test failed

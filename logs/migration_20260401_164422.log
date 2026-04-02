@@ -1,0 +1,45 @@
+2026-04-01 16:44:22 - migration - INFO - Migration started
+2026-04-01 16:45:08 - migration - INFO - Dropped table: customers
+2026-04-01 16:45:08 - migration - INFO - Dropped table: order_items
+2026-04-01 16:45:08 - migration - INFO - Dropped table: orders
+2026-04-01 16:45:09 - migration - INFO - Created table: customers
+2026-04-01 16:45:09 - migration - INFO - Created table: order_items
+2026-04-01 16:45:09 - migration - INFO - Created table: orders
+2026-04-01 16:45:09 - migration - INFO - Inserted 20 rows into customers
+2026-04-01 16:45:09 - migration - INFO - Inserted 20 rows into order_items
+2026-04-01 16:45:09 - migration - INFO - Inserted 20 rows into orders
+2026-04-01 16:45:10 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-01 16:45:10 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine sp_add_customer: syntax error at or near "INSERT"
+LINE 2:     INSERT INTO customers (first_name, last_name, email, pho...
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine sp_get_order_details: syntax error at or near "SELECT"
+LINE 2:     SELECT 
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine sp_place_order: syntax error at or near "DECLARE"
+LINE 2:     DECLARE v_exists INT DEFAULT 0;
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine sp_update_customer_metrics: syntax error at or near "UPDATE"
+LINE 2:     UPDATE customers 
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine fn_customer_active_orders_count: syntax error at or near "DECLARE"
+LINE 2:     DECLARE v_count INT;
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine fn_customer_avg_order_value: syntax error at or near "DECLARE"
+LINE 2:     DECLARE v_avg DECIMAL(12,2);
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine fn_customer_lifetime_value: syntax error at or near "DECLARE"
+LINE 2:     DECLARE v_total DECIMAL(12,2);
+            ^
+
+2026-04-01 16:45:10 - migration - WARNING - Error creating routine fn_monthly_revenue: syntax error at or near "DECLARE"
+LINE 2:     DECLARE v_rev DECIMAL(12,2);
+            ^
+
+2026-04-01 16:45:10 - migration - INFO - Migration completed successfully

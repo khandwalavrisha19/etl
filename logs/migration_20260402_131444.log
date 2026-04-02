@@ -1,0 +1,17 @@
+2026-04-02 13:14:44 - migration - INFO - Migration started
+2026-04-02 13:15:00 - migration - INFO - Dropped table: courses
+2026-04-02 13:15:00 - migration - INFO - Dropped table: enrollments
+2026-04-02 13:15:00 - migration - INFO - Dropped table: students
+2026-04-02 13:15:01 - migration - INFO - Created table: courses
+2026-04-02 13:15:01 - migration - INFO - Created table: enrollments
+2026-04-02 13:15:01 - migration - INFO - Created table: students
+2026-04-02 13:15:01 - migration - INFO - Inserted 5 rows into courses
+2026-04-02 13:15:01 - migration - INFO - Inserted 7 rows into enrollments
+2026-04-02 13:15:01 - migration - INFO - Inserted 6 rows into students
+2026-04-02 13:15:01 - migration - INFO - Applied constraint: ALTER TABLE "enrollments" ADD CONSTRAINT "enrollments_ibfk_1...
+2026-04-02 13:15:01 - migration - INFO - Applied constraint: ALTER TABLE "enrollments" ADD CONSTRAINT "enrollments_ibfk_2...
+2026-04-02 13:15:01 - migration - INFO - Created routine: get_all_students
+2026-04-02 13:15:02 - migration - INFO - Created routine: get_student_courses
+2026-04-02 13:15:02 - migration - INFO - Created routine: avg_attendance
+2026-04-02 13:15:02 - migration - INFO - Created routine: total_courses
+2026-04-02 13:15:02 - migration - INFO - Migration completed successfully

@@ -1,0 +1,6 @@
+2026-04-01 16:29:59 - migration - INFO - Migration started
+2026-04-01 16:30:10 - migration - ERROR - PostgreSQL connection error: relation "customers" already exists
+
+2026-04-01 16:30:10 - migration - ERROR - Table creation error: relation "customers" already exists
+
+2026-04-01 16:30:10 - migration - ERROR - Migration failed

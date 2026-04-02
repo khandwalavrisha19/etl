@@ -1,0 +1,13 @@
+2026-04-01 16:27:03 - migration - INFO - Migration started
+2026-04-01 16:27:19 - migration - INFO - Created table: customers
+2026-04-01 16:27:19 - migration - INFO - Created table: orders
+2026-04-01 16:27:19 - migration - INFO - Created table: order_items
+2026-04-01 16:27:19 - migration - ERROR - PostgreSQL connection error: invalid input syntax for type integer: "customer_id"
+LINE 1: ...p_tier", "loyalty_points", "total_spent") VALUES ('customer_...
+                                                             ^
+
+2026-04-01 16:27:19 - migration - ERROR - Data insertion error: invalid input syntax for type integer: "customer_id"
+LINE 1: ...p_tier", "loyalty_points", "total_spent") VALUES ('customer_...
+                                                             ^
+
+2026-04-01 16:27:19 - migration - ERROR - Migration failed

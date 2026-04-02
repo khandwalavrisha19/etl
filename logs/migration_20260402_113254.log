@@ -1,0 +1,45 @@
+2026-04-02 11:32:54 - migration - INFO - Migration started
+2026-04-02 11:33:44 - migration - INFO - Dropped table: customers
+2026-04-02 11:33:44 - migration - INFO - Dropped table: order_items
+2026-04-02 11:33:44 - migration - INFO - Dropped table: orders
+2026-04-02 11:33:44 - migration - INFO - Created table: customers
+2026-04-02 11:33:44 - migration - INFO - Created table: order_items
+2026-04-02 11:33:44 - migration - INFO - Created table: orders
+2026-04-02 11:33:44 - migration - INFO - Inserted 20 rows into customers
+2026-04-02 11:33:44 - migration - INFO - Inserted 20 rows into order_items
+2026-04-02 11:33:44 - migration - INFO - Inserted 20 rows into orders
+2026-04-02 11:33:44 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-02 11:33:44 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine sp_add_customer: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE PROCEDURE `sp_add_customer`(p_first_name V...
+                                    ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine sp_get_order_details: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE PROCEDURE `sp_get_order_details`(p_order_i...
+                                    ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine sp_place_order: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE PROCEDURE `sp_place_order`(p_customer_id I...
+                                    ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine sp_update_customer_metrics: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE PROCEDURE `sp_update_customer_metrics`(p_c...
+                                    ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine fn_customer_active_orders_count: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE FUNCTION `fn_customer_active_orders_count`...
+                                   ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine fn_customer_avg_order_value: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE FUNCTION `fn_customer_avg_order_value`(p_c...
+                                   ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine fn_customer_lifetime_value: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE FUNCTION `fn_customer_lifetime_value`(p_cu...
+                                   ^
+
+2026-04-02 11:33:44 - migration - WARNING - Error creating routine fn_monthly_revenue: syntax error at or near "`"
+LINE 1: CREATE OR REPLACE FUNCTION `fn_monthly_revenue`(p_year INTEG...
+                                   ^
+
+2026-04-02 11:33:44 - migration - INFO - Migration completed successfully

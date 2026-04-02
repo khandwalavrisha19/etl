@@ -1,0 +1,22 @@
+2026-04-01 16:16:05 - migration - INFO - Migration started
+2026-04-01 16:16:17 - migration - INFO - Transformed schema for table: customers
+2026-04-01 16:16:17 - migration - INFO - Transformed schema for table: order_items
+2026-04-01 16:16:17 - migration - INFO - Transformed schema for table: orders
+2026-04-01 16:16:17 - migration - INFO - Transformed procedure: sp_add_customer
+2026-04-01 16:16:17 - migration - INFO - Transformed procedure: sp_get_order_details
+2026-04-01 16:16:17 - migration - WARNING - Procedure 'sp_place_order' contains IF statements that may need manual review
+2026-04-01 16:16:17 - migration - INFO - Transformed procedure: sp_place_order
+2026-04-01 16:16:17 - migration - INFO - Transformed procedure: sp_update_customer_metrics
+2026-04-01 16:16:17 - migration - INFO - Transformed function: fn_customer_active_orders_count
+2026-04-01 16:16:17 - migration - INFO - Transformed function: fn_customer_avg_order_value
+2026-04-01 16:16:17 - migration - INFO - Transformed function: fn_customer_lifetime_value
+2026-04-01 16:16:17 - migration - INFO - Transformed function: fn_monthly_revenue
+2026-04-01 16:16:18 - migration - ERROR - PostgreSQL connection error: syntax error at or near "="
+LINE 1: ... "customers_chk_2" CHECK (("total_spent" >= 0)) ) =21 DEFAUL...
+                                                             ^
+
+2026-04-01 16:16:18 - migration - ERROR - Table creation error: syntax error at or near "="
+LINE 1: ... "customers_chk_2" CHECK (("total_spent" >= 0)) ) =21 DEFAUL...
+                                                             ^
+
+2026-04-01 16:16:18 - migration - ERROR - Migration failed

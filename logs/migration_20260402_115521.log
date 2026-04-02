@@ -1,0 +1,6 @@
+2026-04-02 11:55:21 - migration - INFO - Migration started
+2026-04-02 11:55:32 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+
+2026-04-02 11:55:32 - migration - ERROR - PostgreSQL connection test failed: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+
+2026-04-02 11:55:32 - migration - ERROR - Connection test failed

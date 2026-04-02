@@ -1,0 +1,27 @@
+2026-04-02 13:22:13 - migration - INFO - Migration started
+2026-04-02 13:22:38 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "hospital_etl_db" does not exist
+
+2026-04-02 13:22:38 - migration - INFO - Database hospital_etl_db not found, attempting to create it...
+2026-04-02 13:22:39 - migration - INFO - Successfully created database: hospital_etl_db
+2026-04-02 13:22:40 - migration - INFO - Dropped table: appointments
+2026-04-02 13:22:40 - migration - INFO - Dropped table: billing_items
+2026-04-02 13:22:40 - migration - INFO - Dropped table: patients
+2026-04-02 13:22:40 - migration - INFO - Created table: appointments
+2026-04-02 13:22:40 - migration - INFO - Created table: billing_items
+2026-04-02 13:22:40 - migration - INFO - Created table: patients
+2026-04-02 13:22:40 - migration - INFO - Inserted 5 rows into appointments
+2026-04-02 13:22:40 - migration - INFO - Inserted 5 rows into billing_items
+2026-04-02 13:22:40 - migration - INFO - Inserted 5 rows into patients
+2026-04-02 13:22:41 - migration - INFO - Applied constraint: ALTER TABLE "appointments" ADD CONSTRAINT "appointments_ibfk...
+2026-04-02 13:22:41 - migration - INFO - Applied constraint: ALTER TABLE "billing_items" ADD CONSTRAINT "billing_items_ib...
+2026-04-02 13:22:41 - migration - INFO - Created routine: sp_add_patient
+2026-04-02 13:22:41 - migration - WARNING - Error creating routine sp_book_appointment: type datetime does not exist
+LINE 1: ...ointment(p_patient_id INTEGER, p_appointment_date DATETIME, ...
+                                                             ^
+
+2026-04-02 13:22:41 - migration - INFO - Created routine: sp_get_patient_history
+2026-04-02 13:22:41 - migration - INFO - Created routine: sp_update_patient_billing
+2026-04-02 13:22:41 - migration - INFO - Created routine: fn_monthly_revenue
+2026-04-02 13:22:41 - migration - INFO - Created routine: fn_patient_total_due
+2026-04-02 13:22:41 - migration - INFO - Created routine: fn_patient_visit_count
+2026-04-02 13:22:41 - migration - INFO - Migration completed successfully

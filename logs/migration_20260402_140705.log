@@ -1,0 +1,28 @@
+2026-04-02 14:07:05 - migration - INFO - Migration started
+2026-04-02 14:07:16 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "comprehensive_etl_db" does not exist
+
+2026-04-02 14:07:16 - migration - INFO - Database comprehensive_etl_db not found, attempting to create it...
+2026-04-02 14:07:18 - migration - INFO - Successfully created database: comprehensive_etl_db
+2026-04-02 14:07:18 - migration - INFO - Dropped table: departments
+2026-04-02 14:07:18 - migration - INFO - Dropped table: employee_projects
+2026-04-02 14:07:18 - migration - INFO - Dropped table: employees
+2026-04-02 14:07:18 - migration - INFO - Dropped table: projects
+2026-04-02 14:07:19 - migration - INFO - Created table: departments
+2026-04-02 14:07:19 - migration - INFO - Created table: employee_projects
+2026-04-02 14:07:19 - migration - INFO - Created table: employees
+2026-04-02 14:07:19 - migration - INFO - Created table: projects
+2026-04-02 14:07:19 - migration - INFO - Inserted 5 rows into departments
+2026-04-02 14:07:19 - migration - INFO - Inserted 5 rows into employee_projects
+2026-04-02 14:07:19 - migration - INFO - Inserted 5 rows into employees
+2026-04-02 14:07:19 - migration - INFO - Inserted 5 rows into projects
+2026-04-02 14:07:19 - migration - INFO - Applied constraint: ALTER TABLE "employee_projects" ADD CONSTRAINT "employee_pro...
+2026-04-02 14:07:19 - migration - INFO - Applied constraint: ALTER TABLE "employee_projects" ADD CONSTRAINT "employee_pro...
+2026-04-02 14:07:19 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-02 14:07:19 - migration - INFO - Applied constraint: ALTER TABLE "projects" ADD CONSTRAINT "projects_ibfk_1" FORE...
+2026-04-02 14:07:20 - migration - INFO - Created routine: sp_add_employee
+2026-04-02 14:07:20 - migration - INFO - Created routine: sp_assign_to_project
+2026-04-02 14:07:20 - migration - INFO - Created routine: sp_department_summary
+2026-04-02 14:07:20 - migration - INFO - Created routine: fn_department_budget_utilization
+2026-04-02 14:07:20 - migration - INFO - Created routine: fn_project_overdue_count
+2026-04-02 14:07:20 - migration - INFO - Created routine: fn_total_employees
+2026-04-02 14:07:20 - migration - INFO - Migration completed successfully

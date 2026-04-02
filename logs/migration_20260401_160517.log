@@ -1,0 +1,10 @@
+2026-04-01 16:05:17 - migration - INFO - Migration started
+2026-04-01 16:05:33 - migration - ERROR - PostgreSQL connection error: connection failed: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+Multiple connection attempts failed. All failures were:
+- host: 'localhost', port: 5432, hostaddr: '::1': connection failed: connection to server at "::1", port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+- host: 'localhost', port: 5432, hostaddr: '127.0.0.1': connection failed: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+2026-04-01 16:05:33 - migration - ERROR - PostgreSQL connection test failed: connection failed: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+Multiple connection attempts failed. All failures were:
+- host: 'localhost', port: 5432, hostaddr: '::1': connection failed: connection to server at "::1", port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+- host: 'localhost', port: 5432, hostaddr: '127.0.0.1': connection failed: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "etl_migration_db" does not exist
+2026-04-01 16:05:33 - migration - ERROR - Connection test failed

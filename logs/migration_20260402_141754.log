@@ -1,0 +1,29 @@
+2026-04-02 14:17:54 - migration - INFO - Migration started
+2026-04-02 14:18:47 - migration - WARNING - Table creation error for customers: relation "customers" already exists
+
+2026-04-02 14:18:47 - migration - WARNING - Table creation error for order_items: relation "order_items" already exists
+
+2026-04-02 14:18:47 - migration - WARNING - Table creation error for orders: relation "orders" already exists
+
+2026-04-02 14:18:47 - migration - WARNING - Table creation error for products: relation "products" already exists
+
+2026-04-02 14:18:47 - migration - WARNING - Insert error for customers: duplicate key value violates unique constraint "customers_pkey"
+DETAIL:  Key (customer_id)=(1) already exists.
+
+2026-04-02 14:18:47 - migration - WARNING - Insert error for order_items: duplicate key value violates unique constraint "order_items_pkey"
+DETAIL:  Key (item_id)=(1) already exists.
+
+2026-04-02 14:18:47 - migration - WARNING - Insert error for orders: duplicate key value violates unique constraint "orders_pkey"
+DETAIL:  Key (order_id)=(1) already exists.
+
+2026-04-02 14:18:47 - migration - WARNING - Insert error for products: duplicate key value violates unique constraint "products_pkey"
+DETAIL:  Key (product_id)=(1) already exists.
+
+2026-04-02 14:18:47 - migration - WARNING - Error creating routine sp_place_order_complex: syntax error at or near "("
+LINE 21:     SET v_new_order_id = lastval();
+                                         ^
+
+2026-04-02 14:18:47 - migration - INFO - Created routine: sp_update_customer_metadata
+2026-04-02 14:18:47 - migration - INFO - Created routine: fn_customer_lifetime_value
+2026-04-02 14:18:47 - migration - INFO - Created routine: fn_total_revenue_by_status
+2026-04-02 14:18:47 - migration - INFO - Migration completed successfully

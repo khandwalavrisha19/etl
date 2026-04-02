@@ -1,0 +1,20 @@
+2026-04-02 13:30:53 - migration - INFO - Migration started
+2026-04-02 13:31:11 - migration - INFO - Dropped table: books
+2026-04-02 13:31:11 - migration - INFO - Dropped table: borrowings
+2026-04-02 13:31:11 - migration - INFO - Dropped table: members
+2026-04-02 13:31:11 - migration - INFO - Created table: books
+2026-04-02 13:31:11 - migration - INFO - Created table: borrowings
+2026-04-02 13:31:11 - migration - INFO - Created table: members
+2026-04-02 13:31:12 - migration - INFO - Inserted 5 rows into books
+2026-04-02 13:31:12 - migration - INFO - Inserted 5 rows into borrowings
+2026-04-02 13:31:12 - migration - INFO - Inserted 5 rows into members
+2026-04-02 13:31:12 - migration - INFO - Applied constraint: ALTER TABLE "borrowings" ADD CONSTRAINT "borrowings_ibfk_1" ...
+2026-04-02 13:31:12 - migration - INFO - Applied constraint: ALTER TABLE "borrowings" ADD CONSTRAINT "borrowings_ibfk_2" ...
+2026-04-02 13:31:12 - migration - INFO - Created routine: sp_add_member
+2026-04-02 13:31:12 - migration - INFO - Created routine: sp_get_member_history
+2026-04-02 13:31:12 - migration - INFO - Created routine: sp_issue_book
+2026-04-02 13:31:12 - migration - INFO - Created routine: sp_return_book
+2026-04-02 13:31:12 - migration - INFO - Created routine: fn_member_total_fine
+2026-04-02 13:31:12 - migration - INFO - Created routine: fn_monthly_borrowings
+2026-04-02 13:31:12 - migration - INFO - Created routine: fn_overdue_books_count
+2026-04-02 13:31:12 - migration - INFO - Migration completed successfully

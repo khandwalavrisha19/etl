@@ -1,0 +1,13 @@
+2026-04-01 16:13:15 - migration - INFO - Migration started
+2026-04-01 16:13:30 - migration - INFO - Transformed schema for table: customers
+2026-04-01 16:13:30 - migration - INFO - Transformed schema for table: order_items
+2026-04-01 16:13:30 - migration - INFO - Transformed schema for table: orders
+2026-04-01 16:13:30 - migration - ERROR - PostgreSQL connection error: syntax error at or near "KEY"
+LINE 1: ...FAULT '0.00', PRIMARY KEY ("customer_id"), UNIQUE KEY "email...
+                                                             ^
+
+2026-04-01 16:13:30 - migration - ERROR - Table creation error: syntax error at or near "KEY"
+LINE 1: ...FAULT '0.00', PRIMARY KEY ("customer_id"), UNIQUE KEY "email...
+                                                             ^
+
+2026-04-01 16:13:30 - migration - ERROR - Migration failed
