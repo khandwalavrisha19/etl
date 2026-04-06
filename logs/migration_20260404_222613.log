@@ -1,0 +1,13 @@
+2026-04-04 22:26:13 - migration - INFO - Migration started
+2026-04-04 22:26:26 - migration - INFO - Dropped table: orders
+2026-04-04 22:26:26 - migration - INFO - Dropped table: products
+2026-04-04 22:26:27 - migration - INFO - Created table: orders
+2026-04-04 22:26:27 - migration - INFO - Created table: products
+2026-04-04 22:26:27 - migration - INFO - Inserted 2 rows into orders
+2026-04-04 22:26:27 - migration - INFO - Inserted 3 rows into products
+2026-04-04 22:26:28 - migration - INFO - Created routine: add_new_product
+2026-04-04 22:26:28 - migration - INFO - Created routine: calculate_order_total
+2026-04-04 22:26:28 - migration - INFO - Created routine: get_discount_price
+2026-04-04 22:26:28 - migration - INFO - Created routine: get_product_categories
+2026-04-04 22:26:28 - migration - INFO - Created routine: get_total_stock
+2026-04-04 22:26:28 - migration - INFO - Migration completed successfully

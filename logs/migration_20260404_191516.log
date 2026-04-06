@@ -1,0 +1,46 @@
+2026-04-04 19:15:16 - migration - INFO - Migration started
+2026-04-04 19:15:30 - migration - INFO - Dropped table: customers
+2026-04-04 19:15:30 - migration - INFO - Dropped table: order_items
+2026-04-04 19:15:30 - migration - INFO - Dropped table: orders
+2026-04-04 19:15:30 - migration - INFO - Created table: customers
+2026-04-04 19:15:30 - migration - INFO - Created table: order_items
+2026-04-04 19:15:30 - migration - INFO - Created table: orders
+2026-04-04 19:15:31 - migration - INFO - Inserted 20 rows into customers
+2026-04-04 19:15:31 - migration - INFO - Inserted 20 rows into order_items
+2026-04-04 19:15:31 - migration - INFO - Inserted 20 rows into orders
+2026-04-04 19:15:31 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-04 19:15:31 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine sp_add_customer: syntax error at or near "INTEGERO"
+LINE 14:     INSERT INTEGERO customers (first_name, last_name, email,...
+                    ^
+
+2026-04-04 19:15:31 - migration - INFO - Created routine: sp_get_order_details
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine sp_place_order: type "integereger" does not exist
+LINE 12:     v_exists INTEGEREGER := 0;
+                      ^
+
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine sp_update_customer_metrics: syntax error at or near ":="
+LINE 4:     total_spent := total_spent + p_order_amount,
+                        ^
+
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine calculate_discount: syntax error at or near "RETURN"
+LINE 7:     RETURN price * (1 - discount_rate);
+            ^
+
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine fn_customer_active_orders_count: type "integereger" does not exist
+LINE 3:     v_count INTEGEREGER;
+                    ^
+
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine fn_customer_avg_order_value: syntax error at or near "SELECT"
+LINE 4:     SELECT AVG(total_amount) INTEGERO v_avg 
+            ^
+
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine fn_customer_lifetime_value: syntax error at or near "SELECT"
+LINE 4:     SELECT total_spent + (loyalty_points * 0.5) INTEGERO v_t...
+            ^
+
+2026-04-04 19:15:31 - migration - WARNING - Error creating routine fn_monthly_revenue: syntax error at or near "SELECT"
+LINE 4:     SELECT SUM(total_amount) INTEGERO v_rev
+            ^
+
+2026-04-04 19:15:32 - migration - INFO - Migration completed successfully

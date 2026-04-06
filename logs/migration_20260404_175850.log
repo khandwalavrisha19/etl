@@ -1,0 +1,30 @@
+2026-04-04 17:58:50 - migration - INFO - Migration started
+2026-04-04 17:59:14 - migration - INFO - Dropped table: attendance
+2026-04-04 17:59:14 - migration - INFO - Dropped table: departments
+2026-04-04 17:59:14 - migration - INFO - Dropped table: employees
+2026-04-04 17:59:14 - migration - INFO - Dropped table: salary_history
+2026-04-04 17:59:15 - migration - INFO - Created table: attendance
+2026-04-04 17:59:15 - migration - INFO - Created table: departments
+2026-04-04 17:59:15 - migration - INFO - Created table: employees
+2026-04-04 17:59:15 - migration - INFO - Created table: salary_history
+2026-04-04 17:59:15 - migration - INFO - Inserted 3 rows into attendance
+2026-04-04 17:59:15 - migration - INFO - Inserted 4 rows into departments
+2026-04-04 17:59:15 - migration - INFO - Inserted 4 rows into employees
+2026-04-04 17:59:15 - migration - INFO - Applied constraint: ALTER TABLE "attendance" ADD CONSTRAINT "attendance_ibfk_1" ...
+2026-04-04 17:59:15 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-04 17:59:15 - migration - INFO - Applied constraint: ALTER TABLE "salary_history" ADD CONSTRAINT "salary_history_...
+2026-04-04 17:59:15 - migration - INFO - Created routine: add_new_employee
+2026-04-04 17:59:15 - migration - WARNING - Error creating routine increase_salary: syntax error at or near "SIGNAL"
+LINE 12:         SIGNAL SQLSTATE '45000'
+                 ^
+
+2026-04-04 17:59:15 - migration - WARNING - Error creating routine mark_attendance_for_all: syntax error at or near "FOR"
+LINE 5:     CONTINUE HANDLER FOR NOT FOUND done := TRUE;
+                             ^
+CONTEXT:  invalid type name "HANDLER FOR "
+
+2026-04-04 17:59:15 - migration - INFO - Created routine: calculate_bonus
+2026-04-04 17:59:15 - migration - INFO - Created routine: get_employee_full_name
+2026-04-04 17:59:15 - migration - WARNING - Error creating routine is_active_employee: type "booleaneger" does not exist
+
+2026-04-04 17:59:15 - migration - INFO - Migration completed successfully

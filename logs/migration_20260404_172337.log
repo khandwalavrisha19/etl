@@ -1,0 +1,51 @@
+2026-04-04 17:23:37 - migration - INFO - Migration started
+2026-04-04 17:24:44 - migration - INFO - Dropped table: audit_log
+2026-04-04 17:24:44 - migration - INFO - Dropped table: customers
+2026-04-04 17:24:44 - migration - INFO - Dropped table: order_items
+2026-04-04 17:24:44 - migration - INFO - Dropped table: orders
+2026-04-04 17:24:44 - migration - INFO - Dropped table: payments
+2026-04-04 17:24:45 - migration - INFO - Created table: audit_log
+2026-04-04 17:24:45 - migration - INFO - Created table: customers
+2026-04-04 17:24:45 - migration - INFO - Created table: order_items
+2026-04-04 17:24:45 - migration - INFO - Created table: orders
+2026-04-04 17:24:45 - migration - INFO - Created table: payments
+2026-04-04 17:24:45 - migration - INFO - Inserted 4 rows into customers
+2026-04-04 17:24:45 - migration - INFO - Inserted 4 rows into order_items
+2026-04-04 17:24:45 - migration - INFO - Inserted 5 rows into orders
+2026-04-04 17:24:45 - migration - INFO - Inserted 3 rows into payments
+2026-04-04 17:24:45 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-04 17:24:45 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 17:24:45 - migration - INFO - Applied constraint: ALTER TABLE "payments" ADD CONSTRAINT "payments_ibfk_1" FORE...
+2026-04-04 17:24:45 - migration - WARNING - Error creating routine archive_completed_orders: unterminated dollar-quoted string at or near "$$
+DECLARE
+    done INTEGER := FALSE;
+    ord_id INTEGER;
+    archive_cursor CURSOR FOR SELECT order_id FROM orders 
+        WHERE order_date < p_cutoff_date AND status = 'completed';
+BEGIN
+
+    -- All DECLARE statements must come first
+
+    -- [PG] cursor-exhaustion handled by FOR loop; was: SET done = TRUE
+
+    "
+LINE 1: ..._completed_orders(p_cutoff_date DATE) LANGUAGE plpgsql AS $$
+                                                                     ^
+
+2026-04-04 17:24:45 - migration - INFO - Created routine: create_full_order
+2026-04-04 17:24:45 - migration - WARNING - Error creating routine process_all_pending_orders: syntax error at or near "pending_loop"
+LINE 13:     pending_loop: LOOP
+             ^
+
+2026-04-04 17:24:45 - migration - WARNING - Error creating routine safe_delete_customer: unterminated dollar-quoted string at or near "$$
+DECLARE
+    has_orders INTEGER := 0;
+BEGIN
+    "
+LINE 1: ...elete_customer(p_customer_id INTEGER) LANGUAGE plpgsql AS $$
+                                                                     ^
+
+2026-04-04 17:24:45 - migration - INFO - Created routine: calculate_discount
+2026-04-04 17:24:45 - migration - INFO - Created routine: calculate_membership_expiry
+2026-04-04 17:24:45 - migration - INFO - Created routine: get_customer_order_summary
+2026-04-04 17:24:45 - migration - INFO - Migration completed successfully

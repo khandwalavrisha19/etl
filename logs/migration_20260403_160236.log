@@ -1,0 +1,33 @@
+2026-04-03 16:02:36 - migration - INFO - Migration started
+2026-04-03 16:02:54 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "imdb_db" does not exist
+
+2026-04-03 16:02:54 - migration - INFO - Database imdb_db not found, attempting to create it...
+2026-04-03 16:02:58 - migration - INFO - Successfully created database: imdb_db
+2026-04-03 16:04:16 - migration - INFO - Dropped table: actors
+2026-04-03 16:04:16 - migration - INFO - Dropped table: directors
+2026-04-03 16:04:16 - migration - INFO - Dropped table: directors_genres
+2026-04-03 16:04:16 - migration - INFO - Dropped table: movies
+2026-04-03 16:04:16 - migration - INFO - Dropped table: movies_directors
+2026-04-03 16:04:16 - migration - INFO - Dropped table: movies_genres
+2026-04-03 16:04:16 - migration - INFO - Dropped table: roles
+2026-04-03 16:04:17 - migration - INFO - Created table: actors
+2026-04-03 16:04:17 - migration - INFO - Created table: directors
+2026-04-03 16:04:17 - migration - INFO - Created table: directors_genres
+2026-04-03 16:04:17 - migration - INFO - Created table: movies
+2026-04-03 16:04:17 - migration - INFO - Created table: movies_directors
+2026-04-03 16:04:17 - migration - INFO - Created table: movies_genres
+2026-04-03 16:04:17 - migration - INFO - Created table: roles
+2026-04-03 16:08:46 - migration - INFO - Inserted 817718 rows into actors
+2026-04-03 16:08:57 - migration - INFO - Inserted 86880 rows into directors
+2026-04-03 16:10:13 - migration - INFO - Inserted 156562 rows into directors_genres
+2026-04-03 16:11:19 - migration - INFO - Inserted 388269 rows into movies
+2026-04-03 16:13:05 - migration - INFO - Inserted 371180 rows into movies_directors
+2026-04-03 16:13:54 - migration - INFO - Inserted 395119 rows into movies_genres
+2026-04-03 16:21:01 - migration - INFO - Inserted 3431966 rows into roles
+2026-04-03 16:21:01 - migration - INFO - Applied constraint: ALTER TABLE "directors_genres" ADD CONSTRAINT "directors_gen...
+2026-04-03 16:21:01 - migration - INFO - Applied constraint: ALTER TABLE "movies_directors" ADD CONSTRAINT "movies_direct...
+2026-04-03 16:21:02 - migration - INFO - Applied constraint: ALTER TABLE "movies_directors" ADD CONSTRAINT "movies_direct...
+2026-04-03 16:21:02 - migration - INFO - Applied constraint: ALTER TABLE "movies_genres" ADD CONSTRAINT "movies_genres_ib...
+2026-04-03 16:21:05 - migration - INFO - Applied constraint: ALTER TABLE "roles" ADD CONSTRAINT "roles_ibfk_1" FOREIGN KE...
+2026-04-03 16:21:06 - migration - INFO - Applied constraint: ALTER TABLE "roles" ADD CONSTRAINT "roles_ibfk_2" FOREIGN KE...
+2026-04-03 16:21:16 - migration - INFO - Migration completed successfully

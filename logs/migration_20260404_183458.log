@@ -1,0 +1,21 @@
+2026-04-04 18:34:58 - migration - INFO - Migration started
+2026-04-04 18:35:19 - migration - INFO - Dropped table: customers
+2026-04-04 18:35:19 - migration - INFO - Dropped table: order_items
+2026-04-04 18:35:19 - migration - INFO - Dropped table: orders
+2026-04-04 18:35:19 - migration - INFO - Dropped table: products
+2026-04-04 18:35:20 - migration - INFO - Created table: customers
+2026-04-04 18:35:20 - migration - INFO - Created table: order_items
+2026-04-04 18:35:20 - migration - INFO - Created table: orders
+2026-04-04 18:35:20 - migration - INFO - Created table: products
+2026-04-04 18:35:20 - migration - INFO - Inserted 5 rows into customers
+2026-04-04 18:35:20 - migration - INFO - Inserted 5 rows into order_items
+2026-04-04 18:35:20 - migration - INFO - Inserted 5 rows into orders
+2026-04-04 18:35:20 - migration - INFO - Inserted 5 rows into products
+2026-04-04 18:35:21 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-04 18:35:21 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_2...
+2026-04-04 18:35:21 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 18:35:21 - migration - INFO - Created routine: sp_place_order_complex
+2026-04-04 18:35:21 - migration - INFO - Created routine: sp_update_customer_metadata
+2026-04-04 18:35:21 - migration - INFO - Created routine: fn_customer_lifetime_value
+2026-04-04 18:35:21 - migration - INFO - Created routine: fn_total_revenue_by_status
+2026-04-04 18:35:21 - migration - INFO - Migration completed successfully

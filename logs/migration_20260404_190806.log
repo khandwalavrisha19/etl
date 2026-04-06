@@ -1,0 +1,65 @@
+2026-04-04 19:08:06 - migration - INFO - Migration started
+2026-04-04 19:08:20 - migration - INFO - Dropped table: customers
+2026-04-04 19:08:20 - migration - INFO - Dropped table: order_items
+2026-04-04 19:08:20 - migration - INFO - Dropped table: orders
+2026-04-04 19:08:20 - migration - WARNING - Table creation error for customers: type "timestampnot" does not exist
+LINE 13:  "registration_date" TIMESTAMPNOT NULL DEFAULT CURRENT_TIMES...
+                              ^
+
+2026-04-04 19:08:20 - migration - WARNING - Table creation error for order_items: type "timestampdefault" does not exist
+LINE 10:  "shipped_date" TIMESTAMPDEFAULT NULL,
+                         ^
+
+2026-04-04 19:08:20 - migration - WARNING - Table creation error for orders: type "timestampnot" does not exist
+LINE 4:  "order_date" TIMESTAMPNOT NULL DEFAULT CURRENT_TIMESTAMP,
+                      ^
+
+2026-04-04 19:08:21 - migration - WARNING - Insert error for customers: relation "customers" does not exist
+LINE 1: INSERT INTO "customers" ("customer_id", "first_name", "last_...
+                    ^
+
+2026-04-04 19:08:21 - migration - WARNING - Insert error for order_items: relation "order_items" does not exist
+LINE 1: INSERT INTO "order_items" ("item_id", "order_id", "product_n...
+                    ^
+
+2026-04-04 19:08:21 - migration - WARNING - Insert error for orders: relation "orders" does not exist
+LINE 1: INSERT INTO "orders" ("order_id", "customer_id", "order_date...
+                    ^
+
+2026-04-04 19:08:21 - migration - WARNING - Constraint error: relation "order_items" does not exist
+
+2026-04-04 19:08:21 - migration - WARNING - Constraint error: relation "orders" does not exist
+
+2026-04-04 19:08:21 - migration - INFO - Created routine: sp_add_customer
+2026-04-04 19:08:21 - migration - INFO - Created routine: sp_get_order_details
+2026-04-04 19:08:21 - migration - INFO - Created routine: sp_place_order
+2026-04-04 19:08:21 - migration - WARNING - Error creating routine sp_update_customer_metrics: syntax error at or near ":="
+LINE 4:     total_spent := total_spent + p_order_amount,
+                        ^
+
+2026-04-04 19:08:21 - migration - WARNING - Error creating routine calculate_discount: syntax error at or near "RETURN"
+LINE 7:     RETURN price * (1 - discount_rate);
+            ^
+
+2026-04-04 19:08:21 - migration - INFO - Created routine: fn_customer_active_orders_count
+2026-04-04 19:08:21 - migration - WARNING - Error creating routine fn_customer_avg_order_value: syntax error at or near "SELECT"
+LINE 4:     SELECT AVG(total_amount) INTO v_avg 
+            ^
+
+2026-04-04 19:08:21 - migration - WARNING - Error creating routine fn_customer_lifetime_value: syntax error at or near "SELECT"
+LINE 4:     SELECT total_spent + (loyalty_points * 0.5) INTO v_total...
+            ^
+
+2026-04-04 19:08:21 - migration - WARNING - Error creating routine fn_monthly_revenue: syntax error at or near "SELECT"
+LINE 4:     SELECT SUM(total_amount) INTO v_rev
+            ^
+
+2026-04-04 19:08:21 - migration - ERROR - PostgreSQL connection error: relation "customers" does not exist
+LINE 1: SELECT COUNT(*) FROM "customers"
+                             ^
+
+2026-04-04 19:08:21 - migration - ERROR - Validation error: relation "customers" does not exist
+LINE 1: SELECT COUNT(*) FROM "customers"
+                             ^
+
+2026-04-04 19:08:21 - migration - INFO - Migration completed successfully

@@ -1,0 +1,47 @@
+2026-04-04 20:03:42 - migration - INFO - Migration started
+2026-04-04 20:03:58 - migration - INFO - Dropped table: customers
+2026-04-04 20:03:58 - migration - INFO - Dropped table: order_details
+2026-04-04 20:03:58 - migration - INFO - Dropped table: orders
+2026-04-04 20:03:58 - migration - INFO - Dropped table: products
+2026-04-04 20:03:58 - migration - INFO - Created table: customers
+2026-04-04 20:03:58 - migration - INFO - Created table: order_details
+2026-04-04 20:03:58 - migration - INFO - Created table: orders
+2026-04-04 20:03:58 - migration - INFO - Created table: products
+2026-04-04 20:03:59 - migration - INFO - Inserted 3 rows into customers
+2026-04-04 20:03:59 - migration - INFO - Inserted 4 rows into order_details
+2026-04-04 20:03:59 - migration - INFO - Inserted 3 rows into orders
+2026-04-04 20:03:59 - migration - INFO - Inserted 4 rows into products
+2026-04-04 20:03:59 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 20:03:59 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 20:03:59 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 20:03:59 - migration - INFO - Created routine: add_new_product
+2026-04-04 20:03:59 - migration - WARNING - Error creating routine place_order: syntax error at or near "INTO"
+LINE 13:     SELECT stock_quantity INTO available_stock 
+                                   ^
+CONTEXT:  invalid type name "stock_quantity INTO available_stock 
+    FROM products WHERE product_id "
+
+2026-04-04 20:03:59 - migration - WARNING - Error creating routine update_low_stock: type "low_stock_cursor" does not exist
+LINE 13:     OPEN low_stock_cursor; <<low_loop>>
+                  ^
+
+2026-04-04 20:03:59 - migration - WARNING - Error creating routine calculate_order_total: syntax error at or near "INTO"
+LINE 7:     SELECT SUM(quantity * unit_price) INTO total
+                                              ^
+CONTEXT:  invalid type name "SUM(quantity * unit_price) INTO total
+    FROM order_details 
+    WHERE order_id "
+
+2026-04-04 20:03:59 - migration - WARNING - Error creating routine get_product_stock: syntax error at or near "INTO"
+LINE 6:     SELECT stock_quantity INTO stock 
+                                  ^
+CONTEXT:  invalid type name "stock_quantity INTO stock 
+    FROM products WHERE product_id "
+
+2026-04-04 20:03:59 - migration - WARNING - Error creating routine is_customer_active: syntax error at or near "INTO"
+LINE 6:     SELECT status INTO cust_status 
+                          ^
+CONTEXT:  invalid type name "status INTO cust_status 
+    FROM customers WHERE customer_id "
+
+2026-04-04 20:03:59 - migration - INFO - Migration completed successfully

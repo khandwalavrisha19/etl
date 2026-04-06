@@ -141,7 +141,5 @@ class Config:
         ).strip().lower()
         self.clean_before_migration = clean_input == 'y'
 
-        verbose_input = console.input(
-            "[yellow]Enable verbose logging?[/yellow] (y/n, default: n): "
-        ).strip().lower()
+        verbose_input = 'y'
         self.verbose_logging = verbose_input == 'y'

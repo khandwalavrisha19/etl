@@ -1,0 +1,36 @@
+2026-04-04 18:18:24 - migration - INFO - Migration started
+2026-04-04 18:18:42 - migration - INFO - Dropped table: attendance
+2026-04-04 18:18:42 - migration - INFO - Dropped table: departments
+2026-04-04 18:18:42 - migration - INFO - Dropped table: employees
+2026-04-04 18:18:42 - migration - INFO - Dropped table: salary_history
+2026-04-04 18:18:43 - migration - INFO - Created table: attendance
+2026-04-04 18:18:43 - migration - INFO - Created table: departments
+2026-04-04 18:18:43 - migration - INFO - Created table: employees
+2026-04-04 18:18:43 - migration - INFO - Created table: salary_history
+2026-04-04 18:18:43 - migration - INFO - Inserted 3 rows into attendance
+2026-04-04 18:18:43 - migration - INFO - Inserted 4 rows into departments
+2026-04-04 18:18:43 - migration - INFO - Inserted 4 rows into employees
+2026-04-04 18:18:43 - migration - INFO - Applied constraint: ALTER TABLE "attendance" ADD CONSTRAINT "attendance_ibfk_1" ...
+2026-04-04 18:18:43 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-04 18:18:43 - migration - INFO - Applied constraint: ALTER TABLE "salary_history" ADD CONSTRAINT "salary_history_...
+2026-04-04 18:18:43 - migration - WARNING - Error creating routine add_new_employee: syntax error at or near "("
+LINE 6: ...t_name, p_email, p_dept_id, p_salary, CURRENT_DATE(), 'activ...
+                                                             ^
+
+2026-04-04 18:18:43 - migration - WARNING - Error creating routine increase_salary: syntax error at or near "*"
+LINE 15:     SET new_salary = current_salary * (1 + p_percentage/100)...
+                                             ^
+
+2026-04-04 18:18:43 - migration - WARNING - Error creating routine mark_attendance_for_all: syntax error at or near "FOR"
+LINE 7:     CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+                             ^
+CONTEXT:  invalid type name "HANDLER FOR "
+
+2026-04-04 18:18:43 - migration - INFO - Created routine: calculate_bonus
+2026-04-04 18:18:43 - migration - WARNING - Error creating routine get_employee_full_name: syntax error at or near "CHARSET"
+LINE 1: ...mployee_full_name(emp_id INTEGER) RETURNS VARCHAR CHARSET ut...
+                                                             ^
+
+2026-04-04 18:18:43 - migration - WARNING - Error creating routine is_active_employee: type "tinyinteger" does not exist
+
+2026-04-04 18:18:44 - migration - INFO - Migration completed successfully

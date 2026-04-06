@@ -1,0 +1,29 @@
+2026-04-04 20:01:58 - migration - INFO - Migration started
+2026-04-04 20:02:11 - migration - INFO - Dropped table: customers
+2026-04-04 20:02:11 - migration - INFO - Dropped table: order_details
+2026-04-04 20:02:11 - migration - INFO - Dropped table: orders
+2026-04-04 20:02:11 - migration - INFO - Dropped table: products
+2026-04-04 20:02:11 - migration - INFO - Created table: customers
+2026-04-04 20:02:11 - migration - INFO - Created table: order_details
+2026-04-04 20:02:11 - migration - INFO - Created table: orders
+2026-04-04 20:02:11 - migration - INFO - Created table: products
+2026-04-04 20:02:12 - migration - INFO - Inserted 3 rows into customers
+2026-04-04 20:02:12 - migration - INFO - Inserted 4 rows into order_details
+2026-04-04 20:02:12 - migration - INFO - Inserted 3 rows into orders
+2026-04-04 20:02:12 - migration - INFO - Inserted 4 rows into products
+2026-04-04 20:02:12 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 20:02:12 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 20:02:12 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 20:02:12 - migration - WARNING - Error creating routine add_new_product: no language specified
+
+2026-04-04 20:02:12 - migration - WARNING - Error creating routine place_order: no language specified
+
+2026-04-04 20:02:12 - migration - WARNING - Error creating routine update_low_stock: no language specified
+
+2026-04-04 20:02:12 - migration - WARNING - Error creating routine calculate_order_total: no language specified
+
+2026-04-04 20:02:12 - migration - WARNING - Error creating routine get_product_stock: no language specified
+
+2026-04-04 20:02:12 - migration - WARNING - Error creating routine is_customer_active: no language specified
+
+2026-04-04 20:02:13 - migration - INFO - Migration completed successfully

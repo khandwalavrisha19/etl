@@ -1,0 +1,17 @@
+2026-04-02 23:59:58 - migration - INFO - Migration started
+2026-04-03 00:00:38 - migration - INFO - Dropped table: customers
+2026-04-03 00:00:38 - migration - INFO - Dropped table: orders
+2026-04-03 00:00:38 - migration - INFO - Dropped table: products
+2026-04-03 00:00:38 - migration - INFO - Created table: customers
+2026-04-03 00:00:38 - migration - INFO - Created table: orders
+2026-04-03 00:00:38 - migration - INFO - Created table: products
+2026-04-03 00:00:38 - migration - INFO - Inserted 5 rows into customers
+2026-04-03 00:00:38 - migration - INFO - Inserted 5 rows into orders
+2026-04-03 00:00:38 - migration - INFO - Inserted 5 rows into products
+2026-04-03 00:00:38 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-03 00:00:39 - migration - INFO - Created routine: sp_add_customer
+2026-04-03 00:00:39 - migration - INFO - Created routine: sp_get_customer_orders
+2026-04-03 00:00:39 - migration - INFO - Created routine: sp_place_order
+2026-04-03 00:00:39 - migration - INFO - Created routine: fn_customer_lifetime_value
+2026-04-03 00:00:39 - migration - INFO - Created routine: fn_monthly_sales
+2026-04-03 00:00:39 - migration - INFO - Migration completed successfully

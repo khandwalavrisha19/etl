@@ -1,0 +1,27 @@
+2026-04-04 18:38:21 - migration - INFO - Migration started
+2026-04-04 18:38:32 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "abc" does not exist
+
+2026-04-04 18:38:32 - migration - INFO - Database abc not found, attempting to create it...
+2026-04-04 18:38:35 - migration - INFO - Successfully created database: abc
+2026-04-04 18:38:35 - migration - INFO - Dropped table: customers
+2026-04-04 18:38:35 - migration - INFO - Dropped table: order_details
+2026-04-04 18:38:35 - migration - INFO - Dropped table: orders
+2026-04-04 18:38:35 - migration - INFO - Dropped table: products
+2026-04-04 18:38:36 - migration - INFO - Created table: customers
+2026-04-04 18:38:36 - migration - INFO - Created table: order_details
+2026-04-04 18:38:36 - migration - INFO - Created table: orders
+2026-04-04 18:38:36 - migration - INFO - Created table: products
+2026-04-04 18:38:36 - migration - INFO - Inserted 3 rows into customers
+2026-04-04 18:38:36 - migration - INFO - Inserted 4 rows into order_details
+2026-04-04 18:38:36 - migration - INFO - Inserted 3 rows into orders
+2026-04-04 18:38:36 - migration - INFO - Inserted 4 rows into products
+2026-04-04 18:38:36 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 18:38:36 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 18:38:36 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 18:38:37 - migration - INFO - Created routine: add_new_product
+2026-04-04 18:38:37 - migration - INFO - Created routine: place_order
+2026-04-04 18:38:37 - migration - INFO - Created routine: update_low_stock
+2026-04-04 18:38:37 - migration - INFO - Created routine: calculate_order_total
+2026-04-04 18:38:37 - migration - INFO - Created routine: get_product_stock
+2026-04-04 18:38:37 - migration - INFO - Created routine: is_customer_active
+2026-04-04 18:38:37 - migration - INFO - Migration completed successfully

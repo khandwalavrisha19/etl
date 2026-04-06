@@ -1,0 +1,50 @@
+2026-04-04 17:17:11 - migration - INFO - Migration started
+2026-04-04 17:17:25 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "etl_migration_test" does not exist
+
+2026-04-04 17:17:25 - migration - INFO - Database etl_migration_test not found, attempting to create it...
+2026-04-04 17:17:27 - migration - INFO - Successfully created database: etl_migration_test
+2026-04-04 17:17:27 - migration - INFO - Dropped table: audit_log
+2026-04-04 17:17:27 - migration - INFO - Dropped table: customers
+2026-04-04 17:17:27 - migration - INFO - Dropped table: order_items
+2026-04-04 17:17:27 - migration - INFO - Dropped table: orders
+2026-04-04 17:17:27 - migration - INFO - Dropped table: payments
+2026-04-04 17:17:27 - migration - INFO - Created table: audit_log
+2026-04-04 17:17:27 - migration - INFO - Created table: customers
+2026-04-04 17:17:27 - migration - INFO - Created table: order_items
+2026-04-04 17:17:27 - migration - INFO - Created table: orders
+2026-04-04 17:17:27 - migration - INFO - Created table: payments
+2026-04-04 17:17:27 - migration - INFO - Inserted 4 rows into customers
+2026-04-04 17:17:27 - migration - INFO - Inserted 4 rows into order_items
+2026-04-04 17:17:27 - migration - INFO - Inserted 5 rows into orders
+2026-04-04 17:17:27 - migration - INFO - Inserted 3 rows into payments
+2026-04-04 17:17:28 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-04 17:17:28 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 17:17:28 - migration - INFO - Applied constraint: ALTER TABLE "payments" ADD CONSTRAINT "payments_ibfk_1" FORE...
+2026-04-04 17:17:28 - migration - WARNING - Error creating routine archive_completed_orders: syntax error at or near "FOR"
+LINE 8:     CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+                             ^
+CONTEXT:  invalid type name "HANDLER FOR "
+
+2026-04-04 17:17:28 - migration - INFO - Created routine: create_full_order
+2026-04-04 17:17:28 - migration - WARNING - Error creating routine process_all_pending_orders: syntax error at or near "FOR"
+LINE 8:     CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+                             ^
+CONTEXT:  invalid type name "HANDLER FOR "
+
+2026-04-04 17:17:28 - migration - WARNING - Error creating routine safe_delete_customer: syntax error at or near "FOR"
+LINE 4:     EXIT HANDLER FOR SQLEXCEPTION 
+                         ^
+CONTEXT:  invalid type name "HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        ROLLBACK"
+
+2026-04-04 17:17:28 - migration - INFO - Created routine: calculate_discount
+2026-04-04 17:17:28 - migration - WARNING - Error creating routine calculate_membership_expiry: syntax error at or near "duration_months"
+LINE 3:     RETURN DATE_ADD(join_date, INTERVAL duration_months MONT...
+                                                ^
+
+2026-04-04 17:17:28 - migration - WARNING - Error creating routine get_customer_order_summary: syntax error at or near "CHARSET"
+LINE 1: ...er_order_summary(cust_id INTEGER) RETURNS VARCHAR CHARSET ut...
+                                                             ^
+
+2026-04-04 17:17:28 - migration - INFO - Migration completed successfully

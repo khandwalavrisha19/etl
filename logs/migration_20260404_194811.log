@@ -1,0 +1,42 @@
+2026-04-04 19:48:11 - migration - INFO - Migration started
+2026-04-04 19:48:28 - migration - INFO - Dropped table: customers
+2026-04-04 19:48:28 - migration - INFO - Dropped table: order_details
+2026-04-04 19:48:28 - migration - INFO - Dropped table: orders
+2026-04-04 19:48:28 - migration - INFO - Dropped table: products
+2026-04-04 19:48:29 - migration - INFO - Created table: customers
+2026-04-04 19:48:29 - migration - INFO - Created table: order_details
+2026-04-04 19:48:29 - migration - INFO - Created table: orders
+2026-04-04 19:48:29 - migration - INFO - Created table: products
+2026-04-04 19:48:29 - migration - INFO - Inserted 3 rows into customers
+2026-04-04 19:48:29 - migration - INFO - Inserted 4 rows into order_details
+2026-04-04 19:48:29 - migration - INFO - Inserted 3 rows into orders
+2026-04-04 19:48:29 - migration - INFO - Inserted 4 rows into products
+2026-04-04 19:48:29 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 19:48:29 - migration - INFO - Applied constraint: ALTER TABLE "order_details" ADD CONSTRAINT "order_details_ib...
+2026-04-04 19:48:29 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-04 19:48:30 - migration - WARNING - Error creating routine add_new_product: syntax error at or near "("
+LINE 11:  SET p_new_id = lastval();
+                                ^
+
+2026-04-04 19:48:30 - migration - WARNING - Error creating routine place_order: syntax error at or near "("
+LINE 25:  SET p_order_id = lastval();
+                                  ^
+
+2026-04-04 19:48:30 - migration - WARNING - Error creating routine update_low_stock: syntax error at or near "FOR"
+LINE 11:  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+                                   ^
+CONTEXT:  invalid type name "HANDLER FOR "
+
+2026-04-04 19:48:30 - migration - WARNING - Error creating routine calculate_order_total: syntax error at or near "DECLARE"
+LINE 6: DECLARE
+        ^
+
+2026-04-04 19:48:30 - migration - WARNING - Error creating routine get_product_stock: syntax error at or near "DECLARE"
+LINE 8: DECLARE
+        ^
+
+2026-04-04 19:48:30 - migration - WARNING - Error creating routine is_customer_active: syntax error at or near "DECLARE"
+LINE 8: DECLARE
+        ^
+
+2026-04-04 19:48:30 - migration - INFO - Migration completed successfully
