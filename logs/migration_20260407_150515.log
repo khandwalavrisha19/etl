@@ -1,0 +1,25 @@
+2026-04-07 15:05:15 - migration - INFO - Migration started
+2026-04-07 15:05:30 - migration - INFO - Dropped table: customers
+2026-04-07 15:05:30 - migration - INFO - Dropped table: order_items
+2026-04-07 15:05:30 - migration - INFO - Dropped table: orders
+2026-04-07 15:05:30 - migration - INFO - Created table: customers
+2026-04-07 15:05:30 - migration - INFO - Created table: order_items
+2026-04-07 15:05:30 - migration - INFO - Created table: orders
+2026-04-07 15:05:30 - migration - INFO - Inserted 20 rows into customers
+2026-04-07 15:05:30 - migration - INFO - Inserted 20 rows into order_items
+2026-04-07 15:05:30 - migration - INFO - Inserted 20 rows into orders
+2026-04-07 15:05:30 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-07 15:05:30 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-07 15:05:30 - migration - INFO - Synchronized sequence for customers.customer_id
+2026-04-07 15:05:30 - migration - INFO - Synchronized sequence for order_items.item_id
+2026-04-07 15:05:30 - migration - INFO - Synchronized sequence for orders.order_id
+2026-04-07 15:05:30 - migration - INFO - Created routine: sp_add_customer
+2026-04-07 15:05:30 - migration - INFO - Created routine: sp_get_order_details
+2026-04-07 15:05:30 - migration - INFO - Created routine: sp_place_order
+2026-04-07 15:05:30 - migration - INFO - Created routine: sp_update_customer_metrics
+2026-04-07 15:05:30 - migration - INFO - Created routine: calculate_discount
+2026-04-07 15:05:30 - migration - INFO - Created routine: fn_customer_active_orders_count
+2026-04-07 15:05:30 - migration - INFO - Created routine: fn_customer_avg_order_value
+2026-04-07 15:05:30 - migration - INFO - Created routine: fn_customer_lifetime_value
+2026-04-07 15:05:30 - migration - INFO - Created routine: fn_monthly_revenue
+2026-04-07 15:05:30 - migration - INFO - Migration completed successfully

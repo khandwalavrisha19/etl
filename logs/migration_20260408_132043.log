@@ -1,0 +1,30 @@
+2026-04-08 13:20:43 - migration - INFO - Migration started
+2026-04-08 13:20:56 - migration - INFO - Dropped table: categories
+2026-04-08 13:20:56 - migration - INFO - Dropped table: customers
+2026-04-08 13:20:56 - migration - INFO - Dropped table: order_items
+2026-04-08 13:20:56 - migration - INFO - Dropped table: orders
+2026-04-08 13:20:56 - migration - INFO - Dropped table: products
+2026-04-08 13:20:56 - migration - INFO - Created table: categories
+2026-04-08 13:20:56 - migration - INFO - Created table: customers
+2026-04-08 13:20:56 - migration - INFO - Created table: order_items
+2026-04-08 13:20:56 - migration - INFO - Created table: orders
+2026-04-08 13:20:56 - migration - INFO - Created table: products
+2026-04-08 13:20:57 - migration - INFO - Inserted 3 rows into categories
+2026-04-08 13:20:57 - migration - INFO - Inserted 3 rows into customers
+2026-04-08 13:20:57 - migration - INFO - Inserted 4 rows into order_items
+2026-04-08 13:20:57 - migration - INFO - Inserted 3 rows into orders
+2026-04-08 13:20:57 - migration - INFO - Inserted 4 rows into products
+2026-04-08 13:20:57 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_1...
+2026-04-08 13:20:57 - migration - INFO - Applied constraint: ALTER TABLE "order_items" ADD CONSTRAINT "order_items_ibfk_2...
+2026-04-08 13:20:57 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-08 13:20:57 - migration - INFO - Applied constraint: ALTER TABLE "products" ADD CONSTRAINT "products_ibfk_1" FORE...
+2026-04-08 13:20:57 - migration - INFO - Synchronized sequence for categories.category_id
+2026-04-08 13:20:57 - migration - INFO - Synchronized sequence for customers.customer_id
+2026-04-08 13:20:57 - migration - INFO - Synchronized sequence for order_items.item_id
+2026-04-08 13:20:57 - migration - INFO - Synchronized sequence for orders.order_id
+2026-04-08 13:20:57 - migration - INFO - Synchronized sequence for products.product_id
+2026-04-08 13:20:57 - migration - INFO - Created routine: create_new_order
+2026-04-08 13:20:57 - migration - INFO - Created routine: update_stock
+2026-04-08 13:20:57 - migration - INFO - Created routine: calculate_final_price
+2026-04-08 13:20:57 - migration - INFO - Created routine: get_order_total
+2026-04-08 13:20:58 - migration - INFO - Migration completed successfully

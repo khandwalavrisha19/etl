@@ -1,0 +1,26 @@
+2026-04-08 15:41:16 - migration - INFO - Migration started
+2026-04-08 15:41:27 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "advanced_etl_test_db" does not exist
+
+2026-04-08 15:41:27 - migration - INFO - Database advanced_etl_test_db not found, attempting to create it...
+2026-04-08 15:41:28 - migration - INFO - Successfully created database: advanced_etl_test_db
+2026-04-08 15:41:29 - migration - INFO - Dropped table: departments
+2026-04-08 15:41:29 - migration - INFO - Dropped table: employees
+2026-04-08 15:41:29 - migration - INFO - Dropped table: orders
+2026-04-08 15:41:29 - migration - INFO - Created table: departments
+2026-04-08 15:41:29 - migration - INFO - Created table: employees
+2026-04-08 15:41:29 - migration - INFO - Created table: orders
+2026-04-08 15:41:29 - migration - INFO - Inserted 3 rows into departments
+2026-04-08 15:41:29 - migration - INFO - Inserted 3 rows into employees
+2026-04-08 15:41:29 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-08 15:41:29 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-08 15:41:29 - migration - INFO - Synchronized sequence for departments.dept_id
+2026-04-08 15:41:29 - migration - INFO - Synchronized sequence for employees.emp_id
+2026-04-08 15:41:29 - migration - INFO - Synchronized sequence for orders.order_id
+2026-04-08 15:41:29 - migration - INFO - Created routine: process_pending_orders
+2026-04-08 15:41:29 - migration - WARNING - Error creating routine safe_create_order: syntax error at or near "RESIGNAL"
+LINE 20:         RESIGNAL;
+                 ^
+
+2026-04-08 15:41:29 - migration - INFO - Created routine: update_employee_salary
+2026-04-08 15:41:29 - migration - INFO - Created routine: calculate_bonus
+2026-04-08 15:41:29 - migration - INFO - Migration completed successfully

@@ -1,0 +1,19 @@
+2026-04-08 15:48:47 - migration - INFO - Migration started
+2026-04-08 15:49:07 - migration - INFO - Dropped table: departments
+2026-04-08 15:49:07 - migration - INFO - Dropped table: employees
+2026-04-08 15:49:07 - migration - INFO - Dropped table: orders
+2026-04-08 15:49:08 - migration - INFO - Created table: departments
+2026-04-08 15:49:08 - migration - INFO - Created table: employees
+2026-04-08 15:49:08 - migration - INFO - Created table: orders
+2026-04-08 15:49:08 - migration - INFO - Inserted 3 rows into departments
+2026-04-08 15:49:08 - migration - INFO - Inserted 3 rows into employees
+2026-04-08 15:49:08 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-08 15:49:08 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-08 15:49:08 - migration - INFO - Synchronized sequence for departments.dept_id
+2026-04-08 15:49:08 - migration - INFO - Synchronized sequence for employees.emp_id
+2026-04-08 15:49:08 - migration - INFO - Synchronized sequence for orders.order_id
+2026-04-08 15:49:08 - migration - INFO - Created routine: process_pending_orders
+2026-04-08 15:49:08 - migration - INFO - Created routine: safe_create_order
+2026-04-08 15:49:08 - migration - INFO - Created routine: update_employee_salary
+2026-04-08 15:49:08 - migration - INFO - Created routine: calculate_bonus
+2026-04-08 15:49:08 - migration - INFO - Migration completed successfully

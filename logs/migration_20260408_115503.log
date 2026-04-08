@@ -1,0 +1,47 @@
+2026-04-08 11:55:03 - migration - INFO - Migration started
+2026-04-08 11:55:14 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "company_db" does not exist
+
+2026-04-08 11:55:14 - migration - INFO - Database company_db not found, attempting to create it...
+2026-04-08 11:55:15 - migration - INFO - Successfully created database: company_db
+2026-04-08 11:55:15 - migration - INFO - Dropped table: departments
+2026-04-08 11:55:15 - migration - INFO - Dropped table: employee_projects
+2026-04-08 11:55:15 - migration - INFO - Dropped table: employees
+2026-04-08 11:55:15 - migration - INFO - Dropped table: projects
+2026-04-08 11:55:15 - migration - INFO - Created table: departments
+2026-04-08 11:55:15 - migration - WARNING - Table creation error for employee_projects: function curdate() does not exist
+LINE 4:  "assigned_date" date DEFAULT (curdate()),
+                                       ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2026-04-08 11:55:15 - migration - INFO - Created table: employees
+2026-04-08 11:55:15 - migration - INFO - Created table: projects
+2026-04-08 11:55:15 - migration - INFO - Inserted 3 rows into departments
+2026-04-08 11:55:15 - migration - WARNING - Insert error for emp_details: relation "emp_details" does not exist
+LINE 1: INSERT INTO "emp_details" ("emp_id", "name", "dept_name", "s...
+                    ^
+
+2026-04-08 11:55:15 - migration - WARNING - Insert error for employee_projects: relation "employee_projects" does not exist
+LINE 1: INSERT INTO "employee_projects" ("emp_id", "project_id", "as...
+                    ^
+
+2026-04-08 11:55:15 - migration - INFO - Inserted 3 rows into employees
+2026-04-08 11:55:15 - migration - INFO - Inserted 2 rows into projects
+2026-04-08 11:55:16 - migration - WARNING - Constraint error: relation "employee_projects" does not exist
+
+2026-04-08 11:55:16 - migration - WARNING - Constraint error: relation "employee_projects" does not exist
+
+2026-04-08 11:55:16 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-08 11:55:16 - migration - INFO - Synchronized sequence for departments.dept_id
+2026-04-08 11:55:16 - migration - INFO - Synchronized sequence for employees.emp_id
+2026-04-08 11:55:16 - migration - INFO - Synchronized sequence for projects.project_id
+2026-04-08 11:55:16 - migration - INFO - Created routine: get_employees_by_department
+2026-04-08 11:55:16 - migration - INFO - Created routine: get_annual_salary
+2026-04-08 11:55:16 - migration - ERROR - PostgreSQL connection error: relation "emp_details" does not exist
+LINE 1: SELECT COUNT(*) FROM "emp_details"
+                             ^
+
+2026-04-08 11:55:16 - migration - ERROR - Validation error: relation "emp_details" does not exist
+LINE 1: SELECT COUNT(*) FROM "emp_details"
+                             ^
+
+2026-04-08 11:55:16 - migration - INFO - Migration completed successfully

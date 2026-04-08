@@ -1,0 +1,24 @@
+2026-04-07 15:02:08 - migration - INFO - Migration started
+2026-04-07 15:02:23 - migration - INFO - Dropped table: customers
+2026-04-07 15:02:23 - migration - INFO - Dropped table: orders
+2026-04-07 15:02:23 - migration - INFO - Dropped table: products
+2026-04-07 15:02:23 - migration - INFO - Created table: customers
+2026-04-07 15:02:23 - migration - INFO - Created table: orders
+2026-04-07 15:02:23 - migration - INFO - Created table: products
+2026-04-07 15:02:23 - migration - INFO - Inserted 3 rows into customers
+2026-04-07 15:02:23 - migration - INFO - Inserted 3 rows into orders
+2026-04-07 15:02:23 - migration - INFO - Inserted 3 rows into products
+2026-04-07 15:02:24 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-07 15:02:24 - migration - INFO - Synchronized sequence for customers.customer_id
+2026-04-07 15:02:24 - migration - INFO - Synchronized sequence for orders.order_id
+2026-04-07 15:02:24 - migration - INFO - Synchronized sequence for products.product_id
+2026-04-07 15:02:24 - migration - INFO - Created routine: add_new_customer
+2026-04-07 15:02:24 - migration - WARNING - Error creating routine place_order: syntax error at or near "price"
+LINE 18: ...RFORM /* result discarded – add INTO if needed */ price FROM...
+                                                              ^
+
+2026-04-07 15:02:24 - migration - INFO - Created routine: restock_low_products
+2026-04-07 15:02:24 - migration - INFO - Created routine: calculate_discount
+2026-04-07 15:02:24 - migration - INFO - Created routine: get_customer_status
+2026-04-07 15:02:24 - migration - INFO - Created routine: get_total_sales
+2026-04-07 15:02:24 - migration - INFO - Migration completed successfully

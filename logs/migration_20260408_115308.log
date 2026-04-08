@@ -1,0 +1,53 @@
+2026-04-08 11:53:08 - migration - INFO - Migration started
+2026-04-08 11:53:22 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "etl_test_db" does not exist
+
+2026-04-08 11:53:22 - migration - INFO - Database etl_test_db not found, attempting to create it...
+2026-04-08 11:53:23 - migration - INFO - Successfully created database: etl_test_db
+2026-04-08 11:53:23 - migration - INFO - Dropped table: departments
+2026-04-08 11:53:23 - migration - INFO - Dropped table: employee_projects
+2026-04-08 11:53:23 - migration - INFO - Dropped table: employees
+2026-04-08 11:53:23 - migration - INFO - Dropped table: projects
+2026-04-08 11:53:24 - migration - INFO - Created table: departments
+2026-04-08 11:53:24 - migration - WARNING - Table creation error for employee_projects: function curdate() does not exist
+LINE 4:  "assigned_date" date DEFAULT (curdate()),
+                                       ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2026-04-08 11:53:24 - migration - INFO - Created table: employees
+2026-04-08 11:53:24 - migration - INFO - Created table: projects
+2026-04-08 11:53:24 - migration - INFO - Inserted 4 rows into departments
+2026-04-08 11:53:24 - migration - WARNING - Insert error for employee_projects: relation "employee_projects" does not exist
+LINE 1: INSERT INTO "employee_projects" ("emp_id", "project_id", "as...
+                    ^
+
+2026-04-08 11:53:24 - migration - INFO - Inserted 4 rows into employees
+2026-04-08 11:53:24 - migration - INFO - Inserted 3 rows into projects
+2026-04-08 11:53:24 - migration - WARNING - Constraint error: relation "employee_projects" does not exist
+
+2026-04-08 11:53:24 - migration - WARNING - Constraint error: relation "employee_projects" does not exist
+
+2026-04-08 11:53:24 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-08 11:53:24 - migration - INFO - Synchronized sequence for departments.dept_id
+2026-04-08 11:53:24 - migration - INFO - Synchronized sequence for employees.emp_id
+2026-04-08 11:53:24 - migration - INFO - Synchronized sequence for projects.project_id
+2026-04-08 11:53:24 - migration - WARNING - Error creating routine add_new_employee: syntax error at or near "("
+LINE 11: ...t_name, p_email, p_dept_id, p_salary, CURRENT_DATE(), TRUE) ...
+                                                              ^
+
+2026-04-08 11:53:24 - migration - INFO - Created routine: increase_salary
+2026-04-08 11:53:24 - migration - WARNING - Error creating routine mark_daily_attendance: syntax error at or near "("
+LINE 20:         VALUES (emp, CURRENT_DATE(), 'present')
+                                          ^
+
+2026-04-08 11:53:24 - migration - INFO - Created routine: calculate_bonus
+2026-04-08 11:53:24 - migration - INFO - Created routine: get_employee_full_name
+2026-04-08 11:53:24 - migration - INFO - Created routine: is_active_employee
+2026-04-08 11:53:24 - migration - ERROR - PostgreSQL connection error: relation "employee_projects" does not exist
+LINE 1: SELECT COUNT(*) FROM "employee_projects"
+                             ^
+
+2026-04-08 11:53:24 - migration - ERROR - Validation error: relation "employee_projects" does not exist
+LINE 1: SELECT COUNT(*) FROM "employee_projects"
+                             ^
+
+2026-04-08 11:53:24 - migration - INFO - Migration completed successfully

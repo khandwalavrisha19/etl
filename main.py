@@ -16,7 +16,7 @@ from config import Config
 from database import test_mysql_connection, test_postgres_connection
 from extract import extract
 from transform import transform_schema, transform_routines
-from load import create_tables, insert_data, apply_constraints, create_routines
+from load import create_tables, insert_data, apply_constraints, create_routines, sync_sequences
 from utils import (
     setup_logging,
     print_step_header,
@@ -115,6 +115,11 @@ def validate_extraction(extractor) -> bool:
     return True
 
 
+    # since routines are generic now, we skip hardcoded function testing
+    
+    return all_match
+
+
 def validate_postgres_migration(config: Config, mysql_counts: dict) -> bool:
     """
     Validate PostgreSQL migration results.
@@ -126,7 +131,7 @@ def validate_postgres_migration(config: Config, mysql_counts: dict) -> bool:
     Returns:
         True if validation passed, False otherwise
     """
-    print_step_header(9, 9, "FINAL VALIDATION")
+    print_step_header(10, 10, "FINAL VALIDATION")
     
     try:
         from database import get_postgres_connection
@@ -178,7 +183,7 @@ def run_migration(config: Config, args) -> bool:
     start_time = time.time()
     
     # Step 1: Extract
-    print_step_header(1, 9, "EXTRACT")
+    print_step_header(1, 10, "EXTRACT")
     success, extractor = extract(config.mysql_config)
     if not success:
         print_error("Extraction failed")
@@ -190,14 +195,14 @@ def run_migration(config: Config, args) -> bool:
         return False
     
     # Step 3: Transform Schema
-    print_step_header(3, 9, "TRANSFORM SCHEMA")
+    print_step_header(3, 10, "TRANSFORM SCHEMA")
     success, transformed_schemas, extracted_fks = transform_schema(extractor.schemas)
     if not success:
         print_error("Schema transformation failed")
         return False
     
     # Step 4: Transform Routines
-    print_step_header(4, 9, "TRANSFORM ROUTINES")
+    print_step_header(4, 10, "TRANSFORM ROUTINES")
     success, transformed_procs, transformed_funcs = transform_routines(
         extractor.procedures,
         extractor.functions
@@ -207,7 +212,7 @@ def run_migration(config: Config, args) -> bool:
         return False
     
     # Step 5: Create Tables
-    print_step_header(5, 9, "CREATE TABLES")
+    print_step_header(5, 10, "CREATE TABLES")
     if not create_tables(
         config.postgres_config,
         transformed_schemas,
@@ -217,20 +222,26 @@ def run_migration(config: Config, args) -> bool:
         return False
     
     # Step 6: Insert Data
-    print_step_header(6, 9, "INSERT DATA")
+    print_step_header(6, 10, "INSERT DATA")
     success, inserted_counts = insert_data(config.postgres_config, extractor.data)
     if not success:
         print_error("Data insertion failed")
         return False
     
     # Step 7: Apply Constraints
-    print_step_header(7, 9, "APPLY CONSTRAINTS")
+    print_step_header(7, 10, "APPLY CONSTRAINTS")
     if not apply_constraints(config.postgres_config, extracted_fks):
         print_error("Constraint application failed")
         return False
+
+    # Step 8: Sync Sequences
+    print_step_header(8, 10, "SYNC SEQUENCES")
+    if not sync_sequences(config.postgres_config):
+        print_error("Sequence synchronization failed")
+        return False
     
-    # Step 8: Create Routines
-    print_step_header(8, 9, "CREATE ROUTINES")
+    # Step 9: Create Routines
+    print_step_header(9, 10, "CREATE ROUTINES")
     success, routine_status = create_routines(
         config.postgres_config,
         transformed_procs,
@@ -240,7 +251,7 @@ def run_migration(config: Config, args) -> bool:
         print_error("Routine creation failed")
         return False
     
-    # Step 9: Final Validation
+    # Step 10: Final Validation
     if not validate_postgres_migration(config, extractor.row_counts):
         print_warning("Final validation found issues")
     

@@ -1,0 +1,24 @@
+2026-04-08 15:23:43 - migration - INFO - Migration started
+2026-04-08 15:23:58 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "final_test_db" does not exist
+
+2026-04-08 15:23:58 - migration - INFO - Database final_test_db not found, attempting to create it...
+2026-04-08 15:24:00 - migration - INFO - Successfully created database: final_test_db
+2026-04-08 15:24:00 - migration - INFO - Dropped table: departments
+2026-04-08 15:24:00 - migration - INFO - Dropped table: employees
+2026-04-08 15:24:00 - migration - INFO - Dropped table: orders
+2026-04-08 15:24:00 - migration - INFO - Created table: departments
+2026-04-08 15:24:00 - migration - INFO - Created table: employees
+2026-04-08 15:24:00 - migration - INFO - Created table: orders
+2026-04-08 15:24:00 - migration - INFO - Inserted 3 rows into departments
+2026-04-08 15:24:00 - migration - INFO - Inserted 3 rows into employees
+2026-04-08 15:24:00 - migration - INFO - Inserted 3 rows into orders
+2026-04-08 15:24:00 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-08 15:24:00 - migration - INFO - Applied constraint: ALTER TABLE "orders" ADD CONSTRAINT "orders_ibfk_1" FOREIGN ...
+2026-04-08 15:24:00 - migration - INFO - Synchronized sequence for departments.dept_id
+2026-04-08 15:24:00 - migration - INFO - Synchronized sequence for employees.emp_id
+2026-04-08 15:24:00 - migration - INFO - Synchronized sequence for orders.order_id
+2026-04-08 15:24:01 - migration - INFO - Created routine: add_new_order
+2026-04-08 15:24:01 - migration - INFO - Created routine: update_employee_status
+2026-04-08 15:24:01 - migration - INFO - Created routine: calculate_bonus
+2026-04-08 15:24:01 - migration - INFO - Created routine: get_employee_name
+2026-04-08 15:24:01 - migration - INFO - Migration completed successfully

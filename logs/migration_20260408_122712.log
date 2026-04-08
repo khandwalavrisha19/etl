@@ -1,0 +1,4 @@
+2026-04-08 12:27:12 - migration - INFO - Migration started
+2026-04-08 12:27:25 - migration - ERROR - MySQL connection error: (1049, "Unknown database 'compaby_db'")
+2026-04-08 12:27:25 - migration - ERROR - MySQL connection test failed: (1049, "Unknown database 'compaby_db'")
+2026-04-08 12:27:25 - migration - ERROR - Connection test failed

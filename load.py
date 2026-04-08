@@ -242,6 +242,65 @@ class PostgreSQLLoader:
             logger.error(f"Routine creation error: {e}")
             return False, routine_status
 
+    def sync_sequences(self) -> bool:
+        """
+        Synchronize PostgreSQL sequences with table data.
+        Ensures that nextval() returns the correct next ID.
+        """
+        try:
+            with get_postgres_connection(self.config) as conn:
+                cursor = conn.cursor()
+                
+                # Query for all columns that have a sequence (SERIAL or IDENTITY)
+                cursor.execute("""
+                    SELECT 
+                        t.table_name, 
+                        c.column_name 
+                    FROM 
+                        information_schema.tables t
+                    JOIN 
+                        information_schema.columns c ON t.table_name = c.table_name
+                    WHERE 
+                        t.table_schema = 'public' 
+                        AND t.table_type = 'BASE TABLE'
+                        AND (
+                            c.column_default LIKE 'nextval%' 
+                            OR c.is_identity = 'YES'
+                        );
+                """)
+                
+                columns_with_sequences = cursor.fetchall()
+                
+                if not columns_with_sequences:
+                    logger.info("No sequences found to synchronize")
+                    return True
+                
+                for table_name, column_name in columns_with_sequences:
+                    try:
+                        # Use pg_get_serial_sequence to find the sequence name.
+                        # Note: table name in the function call needs to be quoted if it contains special chars or is mixed-case.
+                        sync_sql = f"""
+                            SELECT setval(
+                                pg_get_serial_sequence('"{table_name}"', '{column_name}'),
+                                COALESCE(MAX("{column_name}"), 0) + 1,
+                                false
+                            ) FROM "{table_name}"
+                        """
+                        cursor.execute(sync_sql)
+                        logger.info(f"Synchronized sequence for {table_name}.{column_name}")
+                    except Exception as e:
+                        logger.warning(f"Failed to sync sequence for {table_name}.{column_name}: {e}")
+                        conn.rollback() # rollback sub-transaction attempt
+                
+                conn.commit()
+                print_success(f"Synchronized {len(columns_with_sequences)} sequences")
+                return True
+                
+        except Exception as e:
+            print_error(f"Failed to synchronize sequences: {e}")
+            logger.error(f"Sequence sync error: {e}")
+            return False
+
 
 
 
@@ -322,3 +381,17 @@ def create_routines(
     """
     loader = PostgreSQLLoader(config)
     return loader.create_routines(procedures, functions)
+
+
+def sync_sequences(config: DatabaseConfig) -> bool:
+    """
+    Synchronize PostgreSQL sequences after data migration.
+    
+    Args:
+        config: DatabaseConfig instance for PostgreSQL
+        
+    Returns:
+        True if successful, False otherwise
+    """
+    loader = PostgreSQLLoader(config)
+    return loader.sync_sequences()

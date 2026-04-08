@@ -1,0 +1,19 @@
+2026-04-08 16:47:01 - migration - INFO - Migration started
+2026-04-08 16:47:15 - migration - ERROR - PostgreSQL connection error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "basic_test_db" does not exist
+
+2026-04-08 16:47:15 - migration - INFO - Database basic_test_db not found, attempting to create it...
+2026-04-08 16:47:16 - migration - INFO - Successfully created database: basic_test_db
+2026-04-08 16:47:16 - migration - INFO - Dropped table: departments
+2026-04-08 16:47:16 - migration - INFO - Dropped table: employees
+2026-04-08 16:47:17 - migration - INFO - Created table: departments
+2026-04-08 16:47:17 - migration - INFO - Created table: employees
+2026-04-08 16:47:17 - migration - INFO - Inserted 3 rows into departments
+2026-04-08 16:47:17 - migration - INFO - Inserted 3 rows into employees
+2026-04-08 16:47:17 - migration - INFO - Applied constraint: ALTER TABLE "employees" ADD CONSTRAINT "employees_ibfk_1" FO...
+2026-04-08 16:47:17 - migration - INFO - Synchronized sequence for departments.dept_id
+2026-04-08 16:47:17 - migration - INFO - Synchronized sequence for employees.emp_id
+2026-04-08 16:47:18 - migration - INFO - Created routine: add_new_employee
+2026-04-08 16:47:18 - migration - INFO - Created routine: update_employee_salary
+2026-04-08 16:47:18 - migration - INFO - Created routine: calculate_bonus
+2026-04-08 16:47:18 - migration - INFO - Created routine: get_employee_name
+2026-04-08 16:47:18 - migration - INFO - Migration completed successfully
